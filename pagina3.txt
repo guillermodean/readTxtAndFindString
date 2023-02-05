@@ -1,0 +1,2538 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>ACUNID
+        - Observation.org</title>
+
+    
+
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700">
+
+<link href="/static/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+<script src="/static/plugins/jquery/jquery-3.6.0.min.js"></script><script src="/static/plugins/bootstrap/js/bootstrap.js"></script>
+
+<link rel="stylesheet" href="/static/css/app.css?6587d2d3f1be52c3767e79cd579b65465baf4ad7">
+
+<link href="/static/plugins/multiselect/css/multi-select.css" rel="stylesheet"/>
+<script src="/static/plugins/multiselect/js/jquery.multi-select.js"></script>
+<script>
+    $(function () {
+        $('select[multiple]').not('.nomultiselect, .django-select2, .filter-form').multiSelect({
+            'selectableHeader': '<h4>' + gettext('available') + '</h4>',
+            'selectionHeader': '<h4>' + gettext('selected') + '</h4>',
+            'cssClass': 'bootstrap-multiselect'
+        });
+    });
+</script>
+
+<link rel="stylesheet" href="/static/plugins/toastr/toastr.min.css">
+
+<link href="/static/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css?1.9.0" rel="stylesheet">
+<script src="/static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js?1.9.0"></script>
+
+    <script src="/static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+
+<link href="/static/plugins/fontawesome-pro/css/all.css" rel="stylesheet">
+
+<script src="/jsi18n/?es"></script>
+<script>window.navAutocollapse = {more: 'Más'};</script>
+<script src="/static/js/responsive-tabs.js?6587d2d3f1be52c3767e79cd579b65465baf4ad7"></script>
+<script src="/static/plugins/bootstrap-hover-dropdown.js"></script>
+<script src="/static/js/global.js?6587d2d3f1be52c3767e79cd579b65465baf4ad7"></script>
+
+    <script src="https://browser.sentry-cdn.com/5.30.0/bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+    /* global Sentry:true */
+    Sentry.init({
+        dsn: 'https://7fe7a581d51a4b84a72340dec77aa64c@sentry.observation.org/3',
+        release: '6587d2d3f1be52c3767e79cd579b65465baf4ad7',
+        environment: 'production'
+    });
+    </script>
+
+
+<script id="SITE_INFO" type="application/json">{"name": "Observation.org", "map": {"center": [50, 24], "zoom": 2, "esri_apikey": "AAPK259e4716c4fc46a69c619cb6ae91e41fvQHmf63_uACblKpjxxNoDlyz8QXo-uRdt9-dhedU_66gd1nhDH9333MrABIPSNbx"}, "local": "xx", "local_grid": null}</script>
+<script>
+    window.SITE_INFO = JSON.parse(document.getElementById('SITE_INFO').textContent);
+</script>
+
+
+    
+
+<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+<link rel="manifest" href="/.well-known/site.webmanifest">
+<link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#0066b1">
+<link rel="shortcut icon" href="/static/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#0066b1">
+<meta name="msapplication-config" content="/static/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+    <script src="/static/js/likephoto.js?6587d2d3f1be52c3767e79cd579b65465baf4ad7"></script>
+
+    
+    
+
+
+<meta property="og:title" content="Observaciones de naturaleza de ACUNID en Observation.org">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://observation.org/users/342653/locations/?page=3">
+<meta property="og:site_name" content="Observation.org">
+<meta property="og:image" content="https://observation.org/media/photo/39393199.jpg?w=500&amp;h=375">
+<meta property="og:description" content="Observation.org quiere permitir que cualquiera registre y comparta sus observaciones, aumentando el conocimiento de la naturaleza.">
+
+</head>
+
+<body>
+<div class="app-page">
+
+    
+
+
+    
+
+    
+    
+
+    <div class="app-header hidden-xs">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-6 app-header-col app-header-col-left">
+                    <div class="app-header-brand">
+                        <a href="/">
+
+<img src="/static/img/logo/logo-observation-org.svg" alt="Observation.org" class="app-brand-logo">
+</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 app-header-col app-header-col-right">
+                    <div class="app-header-user-info">
+
+                        <div class="dropdown">
+
+                            
+
+                            
+                            <button type="button" class="btn btn-link app-btn-language"
+                                    data-target="#app-i18n-select-modal" data-url="/generic/select-language-modal/"
+                                    data-toggle="tooltip" data-placement="bottom"
+                                    title="Seleccionar idioma">
+                                <span class="content">
+                                    ES
+                                </span>
+                            </button>
+
+                            <button class="btn btn-link dropdown-toggle app-btn-account"
+                                    type="button" id="dropdown-user-info"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                
+                                    ACUNID
+                                
+                                <span class="caret"></span>
+                            </button>
+
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user-info">
+                                
+                                    
+
+
+
+
+
+
+
+<li><a href="/users/342653/">Perfil</a></li>
+<li><a href="/users/342653/observations/">Observaciones</a></li>
+<li><a href="/users/342653/photos/">Fotos</a></li>
+<li><a href="/users/342653/species/">Especies observadas</a></li>
+<li><a href="/users/species-not-seen/">Especies no observadas</a></li>
+<li><a href="/users/342653/locations/">Localizaciones personales</a> </li>
+<li><a href="/users/342653/counts/">Conteos</a></li>
+<li><a href="/users/342653/projects/">Proyectos</a></li>
+
+
+
+<li role="separator" class="divider"></li>
+<li><a href="/users/own/settings/">Ajustes</a></li>
+<li><a href="/accounts/password/change/">Modificar contraseña</a></li>
+<li role="separator" class="divider"></li>
+
+
+    <li><a href="/accounts/logout/" class="js-logout-link">Cerrar sesión</a></li>
+
+
+                                
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-navbar">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-default global-navbar">
+
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" title="Menú"
+                    data-toggle="collapse" data-target="#global-navbar-collapse" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Menú</span>
+                <span class="icon-bar top-bar"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+            </button>
+            <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="/">
+                <span class="header-xs-title">
+                    <span class="app-navbar-brand">
+                        
+
+<img src="/static/img/logo/logo-observation-org.svg" alt="Observation.org" class="app-brand-logo">
+
+                    </span>
+                </span>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="global-navbar-collapse">
+
+            <form class="navbar-form navbar-right app-navbar-search-form" role="search" action="/search/">
+                <div class="input-group hidden-sm hidden-md hidden-lg app-navbar-search-input-group">
+                    <input type="text" class="form-control app-navbar-search-input" placeholder="Buscar"
+                           name="q">
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary" type="submit"><i class="far fa-search"></i></button>
+                    </div>
+                </div>
+                <button class="btn btn-primary hidden-xs app-navbar-search-hide js-navbar-search-button" type="button">
+                    <i class="far fa-search"></i>
+                </button>
+            </form>
+
+            <ul class="nav navbar-nav navbar-left app-navbar-search-hide">
+
+                
+
+                <li class="dropdown app-navbar-submit-dropdown">
+                    <a href="#"
+   class="dropdown-toggle"
+   data-toggle="dropdown"
+   role="button"
+   aria-haspopup="true"
+   aria-expanded="false">
+    Añadir
+    <span class="caret"></span>
+</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="/fieldwork/observations/create/" title="Añadir observación">Observación</a></li>
+                        
+                        
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    
+                    <a href="#"
+   class="dropdown-toggle"
+   data-toggle="dropdown"
+   role="button"
+   aria-haspopup="true"
+   aria-expanded="false">
+    Explorar
+    <span class="caret"></span>
+</a>
+
+                    <ul class="dropdown-menu">
+                        
+                        <li><a href="/fieldwork/observations/daylist/">Observaciones</a></li>
+                        <li><a href="/fieldwork/observations/explore/">Entorno</a></li>
+
+                        <li class="divider"></li>
+                        <li><a href="/species/search/">Especies</a>
+                        </li>
+                        <li><a href="/locations/search/">Localizaciones</a></li>
+
+                        <li class="divider"></li>
+                        <li><a href="/photos/">Fotos</a></li>
+                        <li><a href="/sounds/">Sonidos</a></li>
+
+                        
+
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    
+                    <a href="#"
+   class="dropdown-toggle"
+   data-toggle="dropdown"
+   role="button"
+   aria-haspopup="true"
+   aria-expanded="false">
+    Proyectos
+    <span class="caret"></span>
+</a>
+
+                    <ul class="dropdown-menu">
+                        
+                        <li><a href="/projects/">Proyectos</a></li>
+                        
+                        
+                        
+                        
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    
+                    <a href="#"
+   class="dropdown-toggle"
+   data-toggle="dropdown"
+   role="button"
+   aria-haspopup="true"
+   aria-expanded="false">
+    Acerca de
+    <span class="caret"></span>
+</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="/pages/mission/">Misión</a></li>
+                        <li><a href="/pages/team/">Equipo</a></li>
+                        <li><a href="/pages/help/">Ayuda</a></li>
+                        <li><a href="/pages/getting-started/">Primeros pasos</a></li>
+
+                        <li class="divider"></li>
+                        <li><a href="/stats/">Estadísticas</a></li>
+
+                        <li class="divider"></li>
+                        <li><a href="/tos/">Términos y condiciones</a></li>
+                        <li><a href="/pages/code-of-conduct/">Código de conducta</a></li>
+                        <li><a href="/pages/privacy/">Política de privacidad</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/pages/partners/">Socios</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    
+                    <a href="#"
+   class="dropdown-toggle"
+   data-toggle="dropdown"
+   role="button"
+   aria-haspopup="true"
+   aria-expanded="false">
+    Comunidad
+    <span class="caret"></span>
+</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="/users/search/">Observers</a></li>
+                        <li><a href="/stats/ranking/species/">Ranking por especies</a></li>
+                        <li><a href="/subsites/">Portales</a></li>
+                        <li><a href="/bioblitz/list/">BioBlitzes</a></li>
+                        
+
+                        <li class="divider"></li>
+
+                        <li><a href="/quiz/create/">Crea tu propio quiz</a></li>
+
+                        
+
+                        <li class="divider"></li>
+                        <li>
+                            <a href="https://forum.waarneming.nl" target="_blank">
+                                Foro <i class="far fa-external-link"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                
+                    <li role="presentation" class="os ">
+                        <a href="/index.php" class="os-darkblue">Sito antiguo</a>
+                    </li>
+                
+
+                
+                    <li class="dropdown visible-xs">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            Mi perfil
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            
+
+
+
+
+
+
+
+<li><a href="/users/342653/">Perfil</a></li>
+<li><a href="/users/342653/observations/">Observaciones</a></li>
+<li><a href="/users/342653/photos/">Fotos</a></li>
+<li><a href="/users/342653/species/">Especies observadas</a></li>
+<li><a href="/users/species-not-seen/">Especies no observadas</a></li>
+<li><a href="/users/342653/locations/">Localizaciones personales</a> </li>
+<li><a href="/users/342653/counts/">Conteos</a></li>
+<li><a href="/users/342653/projects/">Proyectos</a></li>
+
+
+
+<li role="separator" class="divider"></li>
+<li><a href="/users/own/settings/">Ajustes</a></li>
+<li><a href="/accounts/password/change/">Modificar contraseña</a></li>
+<li role="separator" class="divider"></li>
+
+
+
+                        </ul>
+                    </li>
+                    <li class="visible-xs">
+                        <a href="/accounts/logout/" class="js-logout-link">Cerrar sesión</a>
+                    </li>
+                
+
+                <li class="visible-xs">
+                    <a href="#" data-toggle="modal" data-target="#app-i18n-select-modal"
+                       data-url="/generic/select-language-modal/">
+                        Seleccionar idioma
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+    </div>
+
+    
+
+    <div class="app-content">
+        <div class="container">
+            <div class="app-content-body">
+                
+    
+    
+        <div class="app-content-title">
+            
+                <h1>
+    ACUNID
+</h1>
+            
+        </div>
+        
+    
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    <ul class="nav nav-tabs app-content-section">
+
+        
+        
+    <li role="presentation">
+        <a href="/users/342653/">Perfil</a>
+    </li>
+
+
+
+        
+        
+    <li role="presentation">
+        <a href="/users/342653/observations/">Observaciones</a>
+    </li>
+
+
+
+        
+        
+        
+    <li role="presentation">
+        <a href="/users/342653/photos/">Fotos</a>
+    </li>
+
+
+
+        
+        
+        
+    <li role="presentation">
+        <a href="/users/342653/sounds/">Sonidos</a>
+    </li>
+
+
+
+        
+            <li role="presentation" class="dropdown ">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Especies <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                
+                
+                
+    <li role="presentation">
+        <a href="/users/342653/species/">Visto</a>
+    </li>
+
+
+
+                
+                
+                
+    <li role="presentation">
+        <a href="/users/species-not-seen/">No visto</a>
+    </li>
+
+
+                </ul>
+            </li>
+        
+
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Conteos <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                
+                
+                
+    <li role="presentation">
+        <a href="/users/342653/transects/">Transectos</a>
+    </li>
+
+
+
+                
+                
+                
+    <li role="presentation">
+        <a href="/users/342653/projects/specieslist-visits/">Listas de especies y checklists</a>
+    </li>
+
+
+
+                
+
+            </ul>
+        </li>
+
+        
+        
+            <li role="presentation" class="dropdown  active ">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Localizaciones <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                
+                
+                
+    <li role="presentation" class="active">
+        <a href="/users/342653/locations/">Mis localizaciones</a>
+    </li>
+
+
+
+                
+                
+                
+    <li role="presentation">
+        <a href="/users/342653/map/">Mapas</a>
+    </li>
+
+
+            </ul>
+
+            
+
+            
+            
+            
+    <li role="presentation">
+        <a href="/users/342653/alerts/">Alertas</a>
+    </li>
+
+
+
+            
+
+        
+    </ul>
+
+    
+    <div class="row">
+        
+        <div class="col-md-7">
+            
+
+
+
+
+
+
+
+    <style>
+        .app-content-filter .row {
+            margin-bottom: 5px;
+        }
+
+        .advanced-filters {
+            display: none;
+        }
+
+        .advanced-filters {
+            margin-top: 3px;
+        }
+
+        .advanced-filters * {
+            margin-bottom: 5px;
+        }
+
+        [name="date_before"] {
+            margin-left: 2px;
+        }
+    </style>
+
+
+
+    
+        
+        <div class="app-content-filter">
+            <form class="form-inline filter-form" autocomplete="off">
+                <div>
+                    
+                    
+                        
+                            <div class="form-group"><label class="sr-only" for="id_search">Nombre</label><input type="text" name="search" class="form-control" placeholder="Nombre" title="" id="id_search"></div>
+                        
+                    
+                    
+                    <button type="submit" class="btn btn-primary">Filtrar</button>
+                    <a href="." class="btn btn-default">Limpiar filtros</a>
+                    
+                    
+                </div>
+                
+            </form>
+        </div>
+    
+
+
+
+<br>
+<div class="app-content-section">
+    
+        
+
+
+
+
+    <div class="table-container table-responsive">
+        
+            
+                <table class="table table-bordered table-striped">
+                   
+                   
+                       <thead >
+                           <tr>
+                           
+                               <th class="orderable">
+                                   
+                                       <a href="?page=3&amp;sort=name">Nombre</a>
+                                   
+                               </th>
+                           
+                               <th class="orderable">
+                                   
+                                       <a href="?page=3&amp;sort=bioblitzes">Bioblitzes</a>
+                                   
+                               </th>
+                           
+                               <th >
+                                   
+                                       
+                                   
+                               </th>
+                           
+                           </tr>
+                       </thead>
+                   
+                   
+                   
+                       <tbody >
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/69641/">ACUNID - Corella-Embalse de la Estanquilla</a></td>
+                               
+                                   <td ><a href="/locations/users/69641/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 69641);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/69641/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/69641/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/69640/">ACUNID - Corella-La Estanca</a></td>
+                               
+                                   <td ><a href="/locations/users/69640/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 69640);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/69640/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/69640/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/68056/">ACUNID - Cortes-Soto de la Mejana de Santa Isabel Río Ebro</a></td>
+                               
+                                   <td ><a href="/locations/users/68056/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 68056);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68056/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68056/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/72013/">ACUNID - Cáseda-EN Soto de Campo Allende y río Aragón</a></td>
+                               
+                                   <td ><a href="/locations/users/72013/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 72013);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/72013/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/72013/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/72084/">ACUNID - Cáseda-Presa río Aragón</a></td>
+                               
+                                   <td ><a href="/locations/users/72084/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 72084);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/72084/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/72084/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/67222/">ACUNID - Esteribar-Embalse de Eugui Río Arga</a></td>
+                               
+                                   <td ><a href="/locations/users/67222/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 67222);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/67222/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/67222/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/70245/">ACUNID - Etxauri-Río Arga Río Arga</a></td>
+                               
+                                   <td ><a href="/locations/users/70245/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 70245);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/70245/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/70245/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/69876/">ACUNID - Falces-Sotos de Arquillo y Barbaraces Río Arga</a></td>
+                               
+                                   <td ><a href="/locations/users/69876/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 69876);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/69876/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/69876/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/69874/">ACUNID - Funes-Sotos de Gil y Ramal Hondo Río Arga</a></td>
+                               
+                                   <td ><a href="/locations/users/69874/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 69874);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/69874/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/69874/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/72012/">ACUNID - Gallipienzo-Río Aragón</a></td>
+                               
+                                   <td ><a href="/locations/users/72012/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 72012);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/72012/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/72012/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/68875/">ACUNID - Genevilla-Embalse de Cabredo</a></td>
+                               
+                                   <td ><a href="/locations/users/68875/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 68875);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68875/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68875/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/65826/">ACUNID - Guirguillano-Presa del Arga. Señorio de Sarría</a></td>
+                               
+                                   <td ><a href="/locations/users/65826/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 65826);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/65826/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/65826/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/68624/">ACUNID - Ibargoiti-Balsa de Celigüeta</a></td>
+                               
+                                   <td ><a href="/locations/users/68624/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 68624);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68624/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68624/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/70168/">ACUNID - Ibero-Confluencia Arga-Arakil Río Arakil-Río Arga</a></td>
+                               
+                                   <td ><a href="/locations/users/70168/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 70168);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/70168/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/70168/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/67219/">ACUNID - Iza-Poza de Iza</a></td>
+                               
+                                   <td ><a href="/locations/users/67219/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 67219);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/67219/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/67219/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/72011/">ACUNID - Javier-Río Aragón</a></td>
+                               
+                                   <td ><a href="/locations/users/72011/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 72011);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/72011/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/72011/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/68999/">ACUNID - Lazagurría-Prados de Lazagurría norte</a></td>
+                               
+                                   <td ><a href="/locations/users/68999/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 68999);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68999/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68999/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/68896/">ACUNID - Lazagurría-Prados de Lazagurría sur</a></td>
+                               
+                                   <td ><a href="/locations/users/68896/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 68896);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68896/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68896/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/68894/">ACUNID - Lazagurría-Río Linares Río Linares</a></td>
+                               
+                                   <td ><a href="/locations/users/68894/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 68894);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68894/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68894/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/71196/">ACUNID - Lerín-Barranco con carrizo</a></td>
+                               
+                                   <td ><a href="/locations/users/71196/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 71196);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/71196/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/71196/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/71193/">ACUNID - Lerín-Barranco grande pueblo</a></td>
+                               
+                                   <td ><a href="/locations/users/71193/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 71193);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/71193/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/71193/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/68898/">ACUNID - Lodosa-Río Ebro Río Ebro</a></td>
+                               
+                                   <td ><a href="/locations/users/68898/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 68898);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68898/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68898/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/68873/">ACUNID - Lorca-Carrizal de Lorca</a></td>
+                               
+                                   <td ><a href="/locations/users/68873/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 68873);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68873/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68873/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="odd">
+                               
+                                   <td ><a href="/locations/users/67221/">ACUNID - Lónguida-Embalse de Villaveta</a></td>
+                               
+                                   <td ><a href="/locations/users/67221/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 67221);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/67221/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/67221/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                           
+                           <tr class="even">
+                               
+                                   <td ><a href="/locations/users/68295/">ACUNID - Marcilla-Soto de la Cueva Río Aragón</a></td>
+                               
+                                   <td ><a href="/locations/users/68295/bioblitz/">0</a></td>
+                               
+                                   <td >
+
+
+
+<a class="btn btn-default btn-xs" href="javascript:map.focusOnFeature('id', 68295);">
+    <i class="fas fa-search-plus"></i> zoom a
+</a>
+
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68295/update/"
+            class="btn btn-default btn-xs"
+ title="Editar"><i class="far fa-pencil"></i> Editar
+
+    </a>
+
+
+
+
+    
+    
+
+
+    
+
+
+<a href="/locations/users/68295/delete/"
+            class="btn btn-danger btn-xs"
+ title="Borrar"><i class="far fa-trash"></i> Borrar
+
+    </a>
+
+
+
+</td>
+                               
+                           </tr>
+                           
+                       
+                       </tbody>
+                   
+                   
+                   
+                   
+               </table>
+            
+        
+
+        
+            
+                
+
+
+    <ul class="pagination">
+
+        
+            <li class="prev">
+                <a href="/users/342653/locations/?page=1">&laquo;</a>
+            </li>
+        
+
+        
+
+        
+            
+                <li>
+                    <a href="/users/342653/locations/?page=1">1</a>
+                </li>
+            
+        
+            
+                <li>
+                    <a href="/users/342653/locations/?page=2">2</a>
+                </li>
+            
+        
+            
+                <li class="active">
+                    <a>3</a>
+                </li>
+            
+        
+            
+                <li>
+                    <a href="/users/342653/locations/?page=4">4</a>
+                </li>
+            
+        
+            
+                <li>
+                    <a href="/users/342653/locations/?page=5">5</a>
+                </li>
+            
+        
+            
+                <li>
+                    <a href="/users/342653/locations/?page=6">6</a>
+                </li>
+            
+        
+
+        
+
+        
+            <li class="last">
+                <a href="/users/342653/locations/?page=6">&raquo;</a>
+            </li>
+        
+
+    </ul>
+
+
+
+            
+        
+    </div>
+
+
+    
+</div>
+
+        </div>
+        <div class="col-md-5">
+            <span class="pull-right app-content-section">
+                
+                    <a href="/locations/users/create/" class="btn btn-primary">
+                        <i class="far fa-plus"></i> Nueva localización personal
+                    </a>
+                
+                <a href="/users/342653/projects/locations/" class="btn btn-default">
+                    Localizaciones de proyecto del usuario
+                </a>
+            </span>
+            <div id="teramap"></div>
+            
+
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet-src.js"></script>
+
+    <script src="/static/teramap/maps.js?version=0.9.21"></script>
+    <link rel="stylesheet" href="/static/teramap/maps.css?version=0.9.21"/>
+
+    <style>
+        #teramap, .teramap {
+            width: 100%;
+            height: 400px;
+            isolation: isolate;
+        }
+
+        .search-input {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        .search-input, .leaflet-control-search {
+            max-width: 800px;
+        }
+
+        .leaflet-top, .leaflet-bottom {
+            z-index: 499;
+        }
+    </style>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/esri-leaflet/dist/esri-leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/esri-leaflet-vector@3/dist/esri-leaflet-vector.js"></script>
+
+<script>
+    function defaultBaselayers() {
+        function attributionExpand(attribution) {
+            var parts = attribution.split('&mdash;', 2);
+            if (parts.length == 1) {
+                return attribution;
+            } else {
+                return parts[0] + '<a onclick="$(this).next().show(); $(this).remove()" href="#teramap">&hellip;</a> <span style="display:none;">' + parts[1] + '</span>';
+            }
+        }
+        var satelliteUrl = '//server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+        var satelliteAttribution = attributionExpand('Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community');
+
+        return {
+            'Topo': L.tileLayer('//server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+                attribution: attributionExpand('Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community')
+            }),
+            'OpenTopo': L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                maxZoom: 17,
+                attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+            }),
+            'Streets': L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }),
+            'Hybrid': L.layerGroup([
+                L.tileLayer(satelliteUrl, {attribution: satelliteAttribution}),
+                L.tileLayer('//services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'),
+                L.tileLayer('//services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}'),
+            ]),
+            'Streets (beta)': L.esri.Vector.vectorBasemapLayer('OSM:Standard', {
+                apikey: 'AAPK259e4716c4fc46a69c619cb6ae91e41fvQHmf63_uACblKpjxxNoDlyz8QXo-uRdt9-dhedU_66gd1nhDH9333MrABIPSNbx'
+            }),
+            'Satellite': L.tileLayer(satelliteUrl, {attribution: satelliteAttribution})
+        };
+    }
+    if (!window.baselayers) {
+        window.baselayers = defaultBaselayers();
+    } else if (typeof window.baselayers == 'function') {
+        window.baselayers = window.baselayers(L);
+    }
+</script>
+
+    
+        <script id="geojson" type="application/json">{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"id": 67306, "popup-content": "<a href=\"/locations/users/67306/\">ACUNID - Ablitas-Balsa de Bajab\u00f3n</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.599798, 41.977949], [-1.596622, 41.977135], [-1.590893, 41.97637], [-1.589788, 41.976609], [-1.585947, 41.974727], [-1.584724, 41.974519], [-1.582729, 41.9757], [-1.580991, 41.975604], [-1.579843, 41.975062], [-1.577804, 41.976338], [-1.576409, 41.975923], [-1.579102, 41.977901], [-1.580454, 41.978252], [-1.595807, 41.978348], [-1.599798, 41.977949]]]}}, {"type": "Feature", "properties": {"id": 69643, "popup-content": "<a href=\"/locations/users/69643/\">ACUNID - Ablitas-Balsa de Prado Bajo</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.631041, 41.983978], [-1.632349, 41.983117], [-1.632757, 41.981745], [-1.632457, 41.980421], [-1.629109, 41.980246], [-1.625955, 41.981666], [-1.626148, 41.982654], [-1.629624, 41.984345], [-1.631041, 41.983978]]]}}, {"type": "Feature", "properties": {"id": 68876, "popup-content": "<a href=\"/locations/users/68876/\">ACUNID - Aguilar de Cod\u00e9s-R\u00edo Linares R\u00edo Linares</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-2.410353, 42.611355], [-2.410332, 42.610534], [-2.40089, 42.610092], [-2.391299, 42.610249], [-2.387351, 42.609839], [-2.380377, 42.611649], [-2.376085, 42.611254], [-2.372309, 42.610265], [-2.370335, 42.610281], [-2.367425, 42.609217], [-2.36515, 42.609548], [-2.360902, 42.608064], [-2.360237, 42.608474], [-2.364734, 42.610038], [-2.367189, 42.609927], [-2.370721, 42.61097], [-2.372867, 42.610938], [-2.376364, 42.612107], [-2.380527, 42.612407], [-2.385226, 42.611238], [-2.389861, 42.61097], [-2.400611, 42.610843], [-2.404753, 42.611364], [-2.410353, 42.611355]]]}}, {"type": "Feature", "properties": {"id": 71189, "popup-content": "<a href=\"/locations/users/71189/\">ACUNID - Allo-Carrizal de Allo Arroyo Riomayor/Salado</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-2.009374, 42.532927], [-2.008558, 42.53261], [-2.007979, 42.531235], [-2.008344, 42.530966], [-2.0127, 42.530934], [-2.015618, 42.531503], [-2.019223, 42.531393], [-2.020596, 42.532405], [-2.023149, 42.533496], [-2.026475, 42.532468], [-2.028192, 42.533227], [-2.030617, 42.533512], [-2.037955, 42.535282], [-2.039908, 42.536057], [-2.050444, 42.537053], [-2.053169, 42.538935], [-2.05171, 42.540674], [-2.049328, 42.539551], [-2.044264, 42.539298], [-2.036217, 42.53816], [-2.035131, 42.53822], [-2.033243, 42.539928], [-2.026905, 42.537844], [-2.022356, 42.538223], [-2.018364, 42.534286], [-2.014867, 42.534018], [-2.012206, 42.533164], [-2.009374, 42.532927]]]}}, {"type": "Feature", "properties": {"id": 72802, "popup-content": "<a href=\"/locations/users/72802/\">ACUNID - Andosilla-R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.972132, 42.34469], [-1.963291, 42.352455], [-1.988869, 42.364632], [-2.003803, 42.365393], [-2.015648, 42.373764], [-2.022772, 42.366255], [-2.010069, 42.358899], [-1.992044, 42.356108], [-1.984663, 42.347608], [-1.972132, 42.34469]]]}}, {"type": "Feature", "properties": {"id": 67269, "popup-content": "<a href=\"/locations/users/67269/\">ACUNID - Aranguren-Balsa de Zolina</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.584134, 42.781196], [-1.585979, 42.777007], [-1.581903, 42.77266], [-1.578898, 42.771021], [-1.567311, 42.775589], [-1.566796, 42.780535], [-1.570272, 42.78507], [-1.579885, 42.786961], [-1.584134, 42.781196]]]}}, {"type": "Feature", "properties": {"id": 67302, "popup-content": "<a href=\"/locations/users/67302/\">ACUNID - Arce-Embalse de cola</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.380715, 42.864578], [-1.376081, 42.866403], [-1.37445, 42.865522], [-1.373763, 42.861433], [-1.370072, 42.859042], [-1.368012, 42.855896], [-1.367068, 42.853316], [-1.364579, 42.849855], [-1.363978, 42.848156], [-1.37651, 42.847716], [-1.389127, 42.848031], [-1.392131, 42.847716], [-1.392217, 42.850233], [-1.390414, 42.850925], [-1.387239, 42.851051], [-1.384234, 42.851995], [-1.377518, 42.852876], [-1.37593, 42.854008], [-1.376081, 42.857846], [-1.376445, 42.85879], [-1.380715, 42.864578]]]}}, {"type": "Feature", "properties": {"id": 67303, "popup-content": "<a href=\"/locations/users/67303/\">ACUNID - Arce-Itoiz brazo del Urrobi R\u00edo Urrobi</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.379213, 42.84501], [-1.376209, 42.8491], [-1.368484, 42.849918], [-1.365641, 42.843751], [-1.36358, 42.840731], [-1.363236, 42.83922], [-1.364267, 42.836703], [-1.363077, 42.834185], [-1.36385, 42.832234], [-1.363506, 42.829149], [-1.368047, 42.828394], [-1.369077, 42.831164], [-1.371139, 42.83494], [-1.370795, 42.836451], [-1.3696, 42.838591], [-1.367016, 42.839724], [-1.367359, 42.841234], [-1.370452, 42.842996], [-1.379213, 42.84501]]]}}, {"type": "Feature", "properties": {"id": 68993, "popup-content": "<a href=\"/locations/users/68993/\">ACUNID - Arce-L\u00f3nguida-Embalse de Itoiz</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.372776, 42.795149], [-1.350803, 42.800943], [-1.329174, 42.814292], [-1.325741, 42.871938], [-1.33604, 42.876216], [-1.345654, 42.833933], [-1.356297, 42.828646], [-1.381016, 42.830157], [-1.396122, 42.82361], [-1.391315, 42.807996], [-1.372776, 42.795149]]]}}, {"type": "Feature", "properties": {"id": 69780, "popup-content": "<a href=\"/locations/users/69780/\">ACUNID - Arguedas-Tudela-Arrozales de Arguedas-Tudela</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.589863, 42.120413], [-1.5904, 42.113601], [-1.574306, 42.114524], [-1.573191, 42.119617], [-1.546755, 42.150805], [-1.545553, 42.161368], [-1.557741, 42.168111], [-1.563063, 42.157041], [-1.582975, 42.170401], [-1.59173, 42.166203], [-1.609497, 42.176126], [-1.633186, 42.156278], [-1.626406, 42.155387], [-1.613874, 42.145714], [-1.598253, 42.134768], [-1.588984, 42.127257], [-1.589863, 42.120413]]]}}, {"type": "Feature", "properties": {"id": 68419, "popup-content": "<a href=\"/locations/users/68419/\">ACUNID - Artajona-Balsa de Farangortea</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.763788, 42.612857], [-1.763437, 42.612079], [-1.762536, 42.61185], [-1.76164, 42.612537], [-1.762246, 42.613303], [-1.7633, 42.613804], [-1.764427, 42.613402], [-1.763788, 42.612857]]]}}, {"type": "Feature", "properties": {"id": 68421, "popup-content": "<a href=\"/locations/users/68421/\">ACUNID - Artajona-Presa de Artajona</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.739917, 42.62297], [-1.741977, 42.620192], [-1.740088, 42.615897], [-1.734681, 42.616212], [-1.733909, 42.617602], [-1.730561, 42.618865], [-1.733394, 42.621518], [-1.734252, 42.624486], [-1.737771, 42.626002], [-1.739917, 42.62297]]]}}, {"type": "Feature", "properties": {"id": 70247, "popup-content": "<a href=\"/locations/users/70247/\">ACUNID - Asiain-R\u00edo Arakil R\u00edo Arakil</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.79884, 42.841044], [-1.795835, 42.844316], [-1.790428, 42.840289], [-1.786995, 42.833051], [-1.772575, 42.831855], [-1.769485, 42.829652], [-1.776352, 42.826756], [-1.78648, 42.826064], [-1.79884, 42.841044]]]}}, {"type": "Feature", "properties": {"id": 72390, "popup-content": "<a href=\"/locations/users/72390/\">ACUNID - Azagra-R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.848192, 42.254315], [-1.868963, 42.256221], [-1.858921, 42.286453], [-1.903896, 42.298135], [-1.910419, 42.324793], [-1.923122, 42.322255], [-1.923466, 42.312862], [-1.913509, 42.308292], [-1.920376, 42.301436], [-1.881237, 42.279341], [-1.874714, 42.281373], [-1.869822, 42.273371], [-1.882181, 42.26143], [-1.875658, 42.251901], [-1.854372, 42.246946], [-1.848192, 42.254315]]]}}, {"type": "Feature", "properties": {"id": 68877, "popup-content": "<a href=\"/locations/users/68877/\">ACUNID - Azuelo-R\u00edo Linares R\u00edo Linares</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-2.345809, 42.606693], [-2.345294, 42.606203], [-2.346989, 42.605698], [-2.350057, 42.605777], [-2.35216, 42.607025], [-2.355765, 42.607688], [-2.356258, 42.608351], [-2.352181, 42.608035], [-2.349413, 42.60663], [-2.345809, 42.606693]]]}}, {"type": "Feature", "properties": {"id": 69472, "popup-content": "<a href=\"/locations/users/69472/\">ACUNID - Bara\u00f1ain-Lago de Bara\u00f1ain</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.692597, 42.802753], [-1.692351, 42.802131], [-1.691256, 42.80184], [-1.690602, 42.801982], [-1.690237, 42.803045], [-1.690527, 42.803493], [-1.691503, 42.803643], [-1.692072, 42.803525], [-1.692597, 42.802753]]]}}, {"type": "Feature", "properties": {"id": 71583, "popup-content": "<a href=\"/locations/users/71583/\">ACUNID - Bara\u00f1ain-R\u00edo Arga R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.703074, 42.802234], [-1.69625, 42.807649], [-1.691444, 42.810262], [-1.683462, 42.80746], [-1.682303, 42.808814], [-1.679814, 42.808405], [-1.681917, 42.805477], [-1.688011, 42.806201], [-1.690757, 42.807712], [-1.701787, 42.800754], [-1.703074, 42.802234]]]}}, {"type": "Feature", "properties": {"id": 72763, "popup-content": "<a href=\"/locations/users/72763/\">ACUNID - Bardenas Reales-Balsa Caba\u00f1a de Felipe Mateo</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.394261, 42.11052], [-1.390828, 42.107741], [-1.387434, 42.10777], [-1.387043, 42.110462], [-1.38915, 42.111793], [-1.392193, 42.111909], [-1.394261, 42.11052]]]}}, {"type": "Feature", "properties": {"id": 72764, "popup-content": "<a href=\"/locations/users/72764/\">ACUNID - Bardenas Reales-Balsa de la Nemes\u00eda</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.426604, 42.135657], [-1.427618, 42.134514], [-1.425979, 42.13395], [-1.42317, 42.13366], [-1.422585, 42.135252], [-1.4236, 42.13596], [-1.426604, 42.135657]]]}}, {"type": "Feature", "properties": {"id": 72762, "popup-content": "<a href=\"/locations/users/72762/\">ACUNID - Bardenas Reales-Barraco de la Val del Rey</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.506048, 42.361883], [-1.499649, 42.363382], [-1.483107, 42.339393], [-1.476553, 42.331549], [-1.466097, 42.329241], [-1.474368, 42.323011], [-1.486229, 42.326357], [-1.494031, 42.338586], [-1.500586, 42.349889], [-1.506048, 42.361883]]]}}, {"type": "Feature", "properties": {"id": 72765, "popup-content": "<a href=\"/locations/users/72765/\">ACUNID - Bardenas Reales-Barrancosalado</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.599855, 42.27203], [-1.588125, 42.285718], [-1.58288, 42.285577], [-1.577158, 42.282049], [-1.572676, 42.275628], [-1.575251, 42.272876], [-1.584311, 42.283108], [-1.596613, 42.270265], [-1.599855, 42.27203]]]}}, {"type": "Feature", "properties": {"id": 69871, "popup-content": "<a href=\"/locations/users/69871/\">ACUNID - Bardenas Reales-Carrizal de Valfondo</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.583447, 42.28512], [-1.584606, 42.28423], [-1.579585, 42.27934], [-1.575594, 42.273339], [-1.573792, 42.273561], [-1.572976, 42.277022], [-1.575079, 42.281087], [-1.583447, 42.28512]]]}}, {"type": "Feature", "properties": {"id": 69872, "popup-content": "<a href=\"/locations/users/69872/\">ACUNID - Bardenas Reales-Embalse de Cortinas</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.510298, 42.206078], [-1.508818, 42.204767], [-1.507241, 42.204425], [-1.506329, 42.205164], [-1.505556, 42.207056], [-1.505803, 42.207517], [-1.507648, 42.207485], [-1.510298, 42.206078]]]}}, {"type": "Feature", "properties": {"id": 68629, "popup-content": "<a href=\"/locations/users/68629/\">ACUNID - Bardenas Reales-Embalse de El Ferial</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.59276, 42.286769], [-1.581001, 42.284864], [-1.574221, 42.287468], [-1.566753, 42.285563], [-1.559458, 42.282515], [-1.560488, 42.287785], [-1.559114, 42.290388], [-1.544867, 42.289817], [-1.535854, 42.292357], [-1.536283, 42.294388], [-1.553707, 42.293817], [-1.55345, 42.297245], [-1.562119, 42.294198], [-1.565123, 42.292611], [-1.566925, 42.294071], [-1.569414, 42.292801], [-1.576967, 42.294896], [-1.579885, 42.293563], [-1.583834, 42.295087], [-1.590443, 42.290071], [-1.59276, 42.286769]]]}}, {"type": "Feature", "properties": {"id": 69870, "popup-content": "<a href=\"/locations/users/69870/\">ACUNID - Bardenas Reales-Embalse de Zapata</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.440346, 42.171387], [-1.440582, 42.168858], [-1.437664, 42.167507], [-1.435068, 42.167729], [-1.43378, 42.16897], [-1.435261, 42.17029], [-1.434252, 42.17118], [-1.43687, 42.172373], [-1.438887, 42.172516], [-1.440346, 42.171387]]]}}, {"type": "Feature", "properties": {"id": 69879, "popup-content": "<a href=\"/locations/users/69879/\">ACUNID - Beire-Balsa de Beire</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.611149, 42.446641], [-1.610763, 42.444694], [-1.608596, 42.444931], [-1.607244, 42.445913], [-1.606922, 42.447433], [-1.611149, 42.446641]]]}}, {"type": "Feature", "properties": {"id": 68902, "popup-content": "<a href=\"/locations/users/68902/\">ACUNID - Beriain-Balsa de La Morea</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.640997, 42.732482], [-1.63928, 42.735161], [-1.635203, 42.734373], [-1.633444, 42.73122], [-1.636405, 42.729487], [-1.64031, 42.72955], [-1.640997, 42.732482]]]}}, {"type": "Feature", "properties": {"id": 67220, "popup-content": "<a href=\"/locations/users/67220/\">ACUNID - Berrioplano-Loza-Balsa de Loza</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.725068, 42.837898], [-1.722622, 42.833681], [-1.71906, 42.832516], [-1.71494, 42.83494], [-1.713653, 42.837677], [-1.715326, 42.84095], [-1.7167, 42.842146], [-1.723394, 42.842303], [-1.7273, 42.840604], [-1.725068, 42.837898]]]}}, {"type": "Feature", "properties": {"id": 71585, "popup-content": "<a href=\"/locations/users/71585/\">ACUNID - Burlada-Villava-Huarte-R\u00edo Arga R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.620462, 42.821753], [-1.616986, 42.819895], [-1.612651, 42.821595], [-1.610162, 42.8249], [-1.604927, 42.829716], [-1.602695, 42.830912], [-1.600549, 42.833933], [-1.597846, 42.834374], [-1.594927, 42.83195], [-1.594284, 42.830566], [-1.595099, 42.827859], [-1.592653, 42.828331], [-1.591108, 42.828079], [-1.590507, 42.825215], [-1.586816, 42.828111], [-1.586473, 42.831636], [-1.589434, 42.834185], [-1.591365, 42.836482], [-1.590636, 42.838496], [-1.589177, 42.840259], [-1.58819, 42.83944], [-1.589777, 42.836293], [-1.58716, 42.834437], [-1.585314, 42.832139], [-1.584327, 42.829401], [-1.5851, 42.826789], [-1.590335, 42.823389], [-1.592352, 42.82446], [-1.592653, 42.826978], [-1.593854, 42.826191], [-1.595871, 42.82597], [-1.597545, 42.827261], [-1.596644, 42.829873], [-1.595743, 42.830597], [-1.599047, 42.833335], [-1.600463, 42.830094], [-1.603296, 42.828363], [-1.605785, 42.826191], [-1.611235, 42.820084], [-1.615655, 42.818101], [-1.620591, 42.819612], [-1.621578, 42.820619], [-1.620462, 42.821753]]]}}, {"type": "Feature", "properties": {"id": 68024, "popup-content": "<a href=\"/locations/users/68024/\">ACUNID - Bu\u00f1uel-Raspa del Quebrado</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.469586, 41.999687], [-1.471733, 41.999241], [-1.475857, 41.997391], [-1.468555, 41.995605], [-1.466923, 41.994648], [-1.463878, 41.99148], [-1.462015, 41.990544], [-1.458077, 41.989949], [-1.457647, 41.990459], [-1.457991, 41.990778], [-1.460568, 41.991161], [-1.463145, 41.992819], [-1.464949, 41.996073], [-1.469586, 41.999687]]]}}, {"type": "Feature", "properties": {"id": 68039, "popup-content": "<a href=\"/locations/users/68039/\">ACUNID - Bu\u00f1uel-Soto de El Ramillo R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.430265, 41.985245], [-1.427218, 41.985564], [-1.426661, 41.987956], [-1.428549, 41.991369], [-1.430077, 41.992045], [-1.439003, 41.994023], [-1.445011, 41.994214], [-1.448959, 41.995044], [-1.449818, 41.995044], [-1.453938, 41.993002], [-1.457285, 41.99364], [-1.462109, 41.996951], [-1.464169, 41.996504], [-1.462752, 41.994782], [-1.459877, 41.992741], [-1.459791, 41.991943], [-1.457731, 41.990986], [-1.453869, 41.990444], [-1.44593, 41.990699], [-1.442282, 41.991274], [-1.439522, 41.991143], [-1.434214, 41.989774], [-1.432755, 41.989104], [-1.431252, 41.987254], [-1.430828, 41.985267], [-1.430265, 41.985245]]]}}, {"type": "Feature", "properties": {"id": 68025, "popup-content": "<a href=\"/locations/users/68025/\">ACUNID - Bu\u00f1uel-Soto de la Mejana R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.434286, 41.977617], [-1.432698, 41.977186], [-1.432118, 41.977856], [-1.431518, 41.978606], [-1.430809, 41.981892], [-1.431389, 41.985947], [-1.432118, 41.987349], [-1.433578, 41.988624], [-1.438599, 41.990507], [-1.443449, 41.991049], [-1.445853, 41.990443], [-1.45066, 41.990029], [-1.451862, 41.989391], [-1.452377, 41.98869], [-1.451218, 41.987351], [-1.449201, 41.987192], [-1.442204, 41.988308], [-1.437096, 41.986937], [-1.435379, 41.986076], [-1.435079, 41.985246], [-1.435106, 41.982369], [-1.436136, 41.978447], [-1.435793, 41.977874], [-1.434286, 41.977617]]]}}, {"type": "Feature", "properties": {"id": 68055, "popup-content": "<a href=\"/locations/users/68055/\">ACUNID - Bu\u00f1uel-Soto de mora o El Espartal R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.429786, 41.97023], [-1.432146, 41.968667], [-1.430001, 41.966273], [-1.424808, 41.963114], [-1.417684, 41.962476], [-1.413307, 41.961391], [-1.406869, 41.960625], [-1.402719, 41.959581], [-1.401517, 41.959581], [-1.400659, 41.961751], [-1.401002, 41.963155], [-1.412982, 41.965982], [-1.415213, 41.967194], [-1.419247, 41.966492], [-1.42165, 41.966492], [-1.426114, 41.968152], [-1.428764, 41.970872], [-1.429786, 41.97023]]]}}, {"type": "Feature", "properties": {"id": 69877, "popup-content": "<a href=\"/locations/users/69877/\">ACUNID - Caparroso-Sotos de Lobera y el Sotillo R\u00edo Arag\u00f3n</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.700649, 42.338815], [-1.694899, 42.33228], [-1.681852, 42.337102], [-1.673012, 42.343065], [-1.66872, 42.339766], [-1.658506, 42.335769], [-1.653528, 42.339068], [-1.654816, 42.341099], [-1.662884, 42.342494], [-1.669922, 42.34814], [-1.689062, 42.34389], [-1.694126, 42.339132], [-1.700649, 42.338815]]]}}, {"type": "Feature", "properties": {"id": 72083, "popup-content": "<a href=\"/locations/users/72083/\">ACUNID - Carcastillo-Figarol-Balsa Fila Malpial</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.339906, 42.345216], [-1.339171, 42.345921], [-1.338629, 42.344954], [-1.33953, 42.34476], [-1.339906, 42.345216]]]}}, {"type": "Feature", "properties": {"id": 68625, "popup-content": "<a href=\"/locations/users/68625/\">ACUNID - Carcastillo-Figarol-Laguna de Dos Reinos</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.370652, 42.32979], [-1.369536, 42.327506], [-1.365266, 42.325539], [-1.362305, 42.327633], [-1.363142, 42.331376], [-1.366961, 42.332519], [-1.369622, 42.331186], [-1.370652, 42.32979]]]}}, {"type": "Feature", "properties": {"id": 72016, "popup-content": "<a href=\"/locations/users/72016/\">ACUNID - Carcastillo-La Presa/El Islote</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.425068, 42.397284], [-1.424124, 42.398282], [-1.41921, 42.398282], [-1.415112, 42.394939], [-1.416528, 42.393798], [-1.41891, 42.394606], [-1.421506, 42.394923], [-1.422987, 42.396555], [-1.425068, 42.397284]]]}}, {"type": "Feature", "properties": {"id": 67307, "popup-content": "<a href=\"/locations/users/67307/\">ACUNID - Cascante-Laguna de Lor</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.654326, 41.987873], [-1.651065, 41.988001], [-1.648576, 41.988926], [-1.648833, 41.988384], [-1.647503, 41.987841], [-1.647117, 41.987299], [-1.647331, 41.986183], [-1.649134, 41.983822], [-1.649005, 41.982578], [-1.649305, 41.981908], [-1.651837, 41.980377], [-1.654799, 41.980664], [-1.656386, 41.983631], [-1.657331, 41.984683], [-1.657502, 41.985258], [-1.656687, 41.986597], [-1.654326, 41.987873]]]}}, {"type": "Feature", "properties": {"id": 72017, "popup-content": "<a href=\"/locations/users/72017/\">ACUNID - Castej\u00f3n-Gravera del Ayuntamiento</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.674814, 42.156492], [-1.672379, 42.155808], [-1.672915, 42.153541], [-1.6746, 42.154186], [-1.675286, 42.155538], [-1.674814, 42.156492]]]}}, {"type": "Feature", "properties": {"id": 69772, "popup-content": "<a href=\"/locations/users/69772/\">ACUNID - Castej\u00f3n-R\u00edo Ebro R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.697259, 42.179815], [-1.694856, 42.182996], [-1.676488, 42.181469], [-1.670995, 42.176444], [-1.672626, 42.168175], [-1.697259, 42.179815]]]}}, {"type": "Feature", "properties": {"id": 69773, "popup-content": "<a href=\"/locations/users/69773/\">ACUNID - Castej\u00f3n-Soto Alto R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.671252, 42.173836], [-1.672025, 42.169511], [-1.666961, 42.166712], [-1.658292, 42.1732], [-1.659665, 42.17708], [-1.671252, 42.173836]]]}}, {"type": "Feature", "properties": {"id": 69774, "popup-content": "<a href=\"/locations/users/69774/\">ACUNID - Castej\u00f3n-Soto Giraldelli R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.661124, 42.170147], [-1.659322, 42.176762], [-1.653914, 42.177716], [-1.646533, 42.172373], [-1.656318, 42.163531], [-1.661124, 42.170147]]]}}, {"type": "Feature", "properties": {"id": 68631, "popup-content": "<a href=\"/locations/users/68631/\">ACUNID - Cendea de Olza-Olza-Ibero R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.706657, 42.799178], [-1.713953, 42.802579], [-1.722193, 42.81385], [-1.729145, 42.809506], [-1.735239, 42.809191], [-1.74262, 42.814291], [-1.770172, 42.80157], [-1.772232, 42.804467], [-1.767769, 42.811267], [-1.741505, 42.817186], [-1.73275, 42.811393], [-1.725712, 42.817689], [-1.718845, 42.816682], [-1.707859, 42.802738], [-1.70301, 42.801887], [-1.704297, 42.799588], [-1.706657, 42.799178]]]}}, {"type": "Feature", "properties": {"id": 69637, "popup-content": "<a href=\"/locations/users/69637/\">ACUNID - Cintr\u00faenigo-El Pantanillo</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.815845, 42.069987], [-1.816574, 42.069032], [-1.815845, 42.06755], [-1.811725, 42.06927], [-1.812476, 42.070529], [-1.814214, 42.071166], [-1.815845, 42.069987]]]}}, {"type": "Feature", "properties": {"id": 69635, "popup-content": "<a href=\"/locations/users/69635/\">ACUNID - Cintr\u00faenigo-Embalse de la Nava</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.813699, 42.051125], [-1.810523, 42.0524], [-1.807991, 42.050073], [-1.809043, 42.045118], [-1.811532, 42.045468], [-1.812261, 42.048544], [-1.813699, 42.051125]]]}}, {"type": "Feature", "properties": {"id": 68473, "popup-content": "<a href=\"/locations/users/68473/\">ACUNID - Cintr\u00faenigo-Estanquillas de Agua Potable</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.801243, 42.040465], [-1.799827, 42.040985], [-1.797581, 42.04089], [-1.797981, 42.040603], [-1.796608, 42.039965], [-1.794176, 42.04021], [-1.791172, 42.036651], [-1.791186, 42.034781], [-1.792359, 42.033909], [-1.795349, 42.033984], [-1.797223, 42.034292], [-1.802974, 42.036534], [-1.803558, 42.039687], [-1.803443, 42.040792], [-1.801243, 42.040465]]]}}, {"type": "Feature", "properties": {"id": 69638, "popup-content": "<a href=\"/locations/users/69638/\">ACUNID - Cintr\u00faenigo-La Estanca</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.828269, 42.071437], [-1.827883, 42.069955], [-1.826445, 42.069557], [-1.823226, 42.070354], [-1.822432, 42.072329], [-1.82254, 42.074272], [-1.8249, 42.074415], [-1.828269, 42.071437]]]}}, {"type": "Feature", "properties": {"id": 69639, "popup-content": "<a href=\"/locations/users/69639/\">ACUNID - Cintr\u00faenigo-La Estanca 2</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.826783, 42.068888], [-1.824551, 42.069963], [-1.823167, 42.068864], [-1.824455, 42.067845], [-1.82541, 42.067717], [-1.826783, 42.068888]]]}}, {"type": "Feature", "properties": {"id": 69152, "popup-content": "<a href=\"/locations/users/69152/\">ACUNID - Cizur-Guendulain-Balsa de Guendulain</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.710686, 42.763059], [-1.711577, 42.761838], [-1.709774, 42.761114], [-1.708401, 42.761563], [-1.708809, 42.763233], [-1.710096, 42.763516], [-1.710686, 42.763059]]]}}, {"type": "Feature", "properties": {"id": 71795, "popup-content": "<a href=\"/locations/users/71795/\">ACUNID - Corella-Cantera Vieja de la Sarda</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.737269, 42.102346], [-1.736805, 42.102448], [-1.735964, 42.101505], [-1.73775, 42.099034], [-1.738419, 42.098907], [-1.739398, 42.099951], [-1.739483, 42.100308], [-1.739071, 42.10055], [-1.739346, 42.100945], [-1.737269, 42.102346]]]}}, {"type": "Feature", "properties": {"id": 69641, "popup-content": "<a href=\"/locations/users/69641/\">ACUNID - Corella-Embalse de la Estanquilla</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.797992, 42.122641], [-1.79576, 42.124503], [-1.794473, 42.12393], [-1.794795, 42.123246], [-1.792456, 42.122466], [-1.794366, 42.119967], [-1.797177, 42.120716], [-1.797992, 42.122641]]]}}, {"type": "Feature", "properties": {"id": 69640, "popup-content": "<a href=\"/locations/users/69640/\">ACUNID - Corella-La Estanca</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.774099, 42.121814], [-1.769292, 42.119076], [-1.764486, 42.122609], [-1.764271, 42.124265], [-1.766503, 42.125665], [-1.771481, 42.125697], [-1.774442, 42.123851], [-1.774099, 42.121814]]]}}, {"type": "Feature", "properties": {"id": 68056, "popup-content": "<a href=\"/locations/users/68056/\">ACUNID - Cortes-Soto de la Mejana de Santa Isabel R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.385111, 41.943691], [-1.389062, 41.941712], [-1.391811, 41.940818], [-1.392412, 41.942925], [-1.393013, 41.948096], [-1.393958, 41.950586], [-1.393013, 41.954735], [-1.393709, 41.956666], [-1.391432, 41.956921], [-1.387653, 41.955485], [-1.386837, 41.946149], [-1.38469, 41.943915], [-1.385111, 41.943691]]]}}, {"type": "Feature", "properties": {"id": 72013, "popup-content": "<a href=\"/locations/users/72013/\">ACUNID - C\u00e1seda-EN Soto de Campo Allende y r\u00edo Arag\u00f3n</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.366274, 42.526108], [-1.364172, 42.527421], [-1.362863, 42.526155], [-1.361125, 42.526013], [-1.361468, 42.5278], [-1.360824, 42.529634], [-1.357713, 42.529793], [-1.356747, 42.52886], [-1.35855, 42.527705], [-1.359708, 42.525175], [-1.360803, 42.524369], [-1.362798, 42.524558], [-1.364923, 42.525222], [-1.366274, 42.526108]]]}}, {"type": "Feature", "properties": {"id": 72084, "popup-content": "<a href=\"/locations/users/72084/\">ACUNID - C\u00e1seda-Presa r\u00edo Arag\u00f3n</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.34796, 42.542979], [-1.346458, 42.54241], [-1.344656, 42.543864], [-1.342467, 42.544259], [-1.340107, 42.543564], [-1.338927, 42.545002], [-1.342295, 42.545714], [-1.347123, 42.545366], [-1.34796, 42.542979]]]}}, {"type": "Feature", "properties": {"id": 67222, "popup-content": "<a href=\"/locations/users/67222/\">ACUNID - Esteribar-Embalse de Eugui R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.511993, 42.970051], [-1.502123, 42.976143], [-1.508303, 42.981983], [-1.514826, 42.997678], [-1.520834, 42.994916], [-1.523151, 42.983992], [-1.528301, 42.973756], [-1.511993, 42.970051]]]}}, {"type": "Feature", "properties": {"id": 70245, "popup-content": "<a href=\"/locations/users/70245/\">ACUNID - Etxauri-R\u00edo Arga R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.787317, 42.793385], [-1.777918, 42.794047], [-1.764529, 42.789764], [-1.763198, 42.793291], [-1.758606, 42.793259], [-1.758564, 42.785512], [-1.766288, 42.785071], [-1.775773, 42.788283], [-1.784956, 42.790236], [-1.792789, 42.781543], [-1.798024, 42.778645], [-1.809096, 42.781669], [-1.80841, 42.785764], [-1.798968, 42.784], [-1.794591, 42.789354], [-1.79193, 42.792063], [-1.787317, 42.793385]]]}}, {"type": "Feature", "properties": {"id": 69876, "popup-content": "<a href=\"/locations/users/69876/\">ACUNID - Falces-Sotos de Arquillo y Barbaraces R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.801243, 42.420984], [-1.795321, 42.420414], [-1.795235, 42.429284], [-1.791286, 42.431058], [-1.783819, 42.431311], [-1.788197, 42.436759], [-1.796522, 42.435175], [-1.802187, 42.431691], [-1.801243, 42.420984]]]}}, {"type": "Feature", "properties": {"id": 69874, "popup-content": "<a href=\"/locations/users/69874/\">ACUNID - Funes-Sotos de Gil y Ramal Hondo R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.805019, 42.330313], [-1.795578, 42.331835], [-1.79369, 42.327901], [-1.78751, 42.32733], [-1.791973, 42.319144], [-1.797037, 42.316605], [-1.802359, 42.316923], [-1.805706, 42.324538], [-1.805019, 42.330313]]]}}, {"type": "Feature", "properties": {"id": 72012, "popup-content": "<a href=\"/locations/users/72012/\">ACUNID - Gallipienzo-R\u00edo Arag\u00f3n</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.421185, 42.514373], [-1.419554, 42.513203], [-1.415391, 42.515037], [-1.413503, 42.517948], [-1.40758, 42.518074], [-1.40183, 42.52206], [-1.398611, 42.521996], [-1.398354, 42.523198], [-1.403246, 42.523325], [-1.408696, 42.519656], [-1.414361, 42.519529], [-1.417794, 42.517568], [-1.419125, 42.515449], [-1.421185, 42.514373]]]}}, {"type": "Feature", "properties": {"id": 68875, "popup-content": "<a href=\"/locations/users/68875/\">ACUNID - Genevilla-Embalse de Cabredo</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-2.423721, 42.638401], [-2.424236, 42.639585], [-2.428893, 42.64181], [-2.430995, 42.642016], [-2.432219, 42.641289], [-2.43297, 42.640342], [-2.432905, 42.639695], [-2.431618, 42.63829], [-2.430073, 42.637833], [-2.425545, 42.637438], [-2.424387, 42.637754], [-2.423721, 42.638401]]]}}, {"type": "Feature", "properties": {"id": 65826, "popup-content": "<a href=\"/locations/users/65826/\">ACUNID - Guirguillano-Presa del Arga. Se\u00f1orio de Sarr\u00eda</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.836863, 42.707399], [-1.832185, 42.709858], [-1.838708, 42.714115], [-1.836648, 42.720075], [-1.844029, 42.725844], [-1.847291, 42.724804], [-1.841884, 42.718845], [-1.84463, 42.71544], [-1.844029, 42.710804], [-1.836863, 42.707399]]]}}, {"type": "Feature", "properties": {"id": 68624, "popup-content": "<a href=\"/locations/users/68624/\">ACUNID - Ibargoiti-Balsa de Celig\u00fceta</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.415992, 42.672623], [-1.415477, 42.669199], [-1.413889, 42.665239], [-1.412387, 42.66505], [-1.409833, 42.67155], [-1.410413, 42.672812], [-1.413631, 42.673696], [-1.415606, 42.673491], [-1.415992, 42.672623]]]}}, {"type": "Feature", "properties": {"id": 70168, "popup-content": "<a href=\"/locations/users/70168/\">ACUNID - Ibero-Confluencia Arga-Arakil R\u00edo Arakil-R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.770215, 42.803021], [-1.759229, 42.800376], [-1.760817, 42.792881], [-1.763992, 42.792881], [-1.765451, 42.795212], [-1.770859, 42.795086], [-1.77412, 42.796471], [-1.776695, 42.799179], [-1.770215, 42.803021]]]}}, {"type": "Feature", "properties": {"id": 67219, "popup-content": "<a href=\"/locations/users/67219/\">ACUNID - Iza-Poza de Iza</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.729746, 42.847904], [-1.726699, 42.846016], [-1.725583, 42.842744], [-1.725154, 42.840478], [-1.727386, 42.838937], [-1.731892, 42.840352], [-1.735711, 42.844852], [-1.729746, 42.847904]]]}}, {"type": "Feature", "properties": {"id": 72011, "popup-content": "<a href=\"/locations/users/72011/\">ACUNID - Javier-R\u00edo Arag\u00f3n</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.227293, 42.598303], [-1.22519, 42.598208], [-1.225233, 42.599851], [-1.22416, 42.602283], [-1.222873, 42.6038], [-1.224546, 42.604463], [-1.226563, 42.601683], [-1.227336, 42.60004], [-1.227293, 42.598303]]]}}, {"type": "Feature", "properties": {"id": 68999, "popup-content": "<a href=\"/locations/users/68999/\">ACUNID - Lazagurr\u00eda-Prados de Lazagurr\u00eda norte</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-2.238572, 42.505072], [-2.231791, 42.504534], [-2.224195, 42.514848], [-2.214625, 42.529777], [-2.222178, 42.530567], [-2.230718, 42.525412], [-2.234452, 42.521079], [-2.235825, 42.517568], [-2.237027, 42.512222], [-2.238829, 42.508647], [-2.238572, 42.505072]]]}}, {"type": "Feature", "properties": {"id": 68896, "popup-content": "<a href=\"/locations/users/68896/\">ACUNID - Lazagurr\u00eda-Prados de Lazagurr\u00eda sur</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-2.232628, 42.504788], [-2.233186, 42.50599], [-2.236662, 42.505832], [-2.237949, 42.505009], [-2.238147, 42.494726], [-2.237074, 42.492099], [-2.236087, 42.491055], [-2.230551, 42.490454], [-2.22892, 42.489156], [-2.228362, 42.487226], [-2.228276, 42.485106], [-2.229967, 42.47982], [-2.229667, 42.476687], [-2.227178, 42.473015], [-2.228036, 42.471242], [-2.221899, 42.465227], [-2.220466, 42.462948], [-2.219324, 42.45994], [-2.218294, 42.458262], [-2.216045, 42.456078], [-2.212312, 42.457217], [-2.213831, 42.461492], [-2.214844, 42.463265], [-2.222182, 42.471844], [-2.22613, 42.475009], [-2.22892, 42.478111], [-2.228491, 42.480453], [-2.226731, 42.483112], [-2.226173, 42.485232], [-2.22716, 42.490011], [-2.228405, 42.491435], [-2.232053, 42.493302], [-2.233297, 42.496909], [-2.231495, 42.502003], [-2.232628, 42.504788]]]}}, {"type": "Feature", "properties": {"id": 68894, "popup-content": "<a href=\"/locations/users/68894/\">ACUNID - Lazagurr\u00eda-R\u00edo Linares R\u00edo Linares</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-2.244713, 42.494669], [-2.246558, 42.494954], [-2.24776, 42.494099], [-2.249176, 42.494827], [-2.250764, 42.494827], [-2.252266, 42.49527], [-2.25351, 42.493403], [-2.248103, 42.492296], [-2.245914, 42.490682], [-2.244842, 42.490334], [-2.243211, 42.49027], [-2.241752, 42.49084], [-2.237675, 42.49046], [-2.236859, 42.490903], [-2.238619, 42.491663], [-2.243812, 42.492232], [-2.244327, 42.492897], [-2.244713, 42.494669]]]}}, {"type": "Feature", "properties": {"id": 71196, "popup-content": "<a href=\"/locations/users/71196/\">ACUNID - Ler\u00edn-Barranco con carrizo</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.997409, 42.522874], [-1.994394, 42.522313], [-1.992527, 42.520162], [-1.992924, 42.519063], [-1.991905, 42.51843], [-1.985461, 42.516973], [-1.986877, 42.515771], [-1.986191, 42.514854], [-1.985204, 42.514506], [-1.983144, 42.516784], [-1.983204, 42.519798], [-1.979513, 42.520573], [-1.98123, 42.521712], [-1.985414, 42.520241], [-1.984903, 42.518175], [-1.986105, 42.517954], [-1.990725, 42.519237], [-1.9908, 42.520937], [-1.991583, 42.522012], [-1.992785, 42.522075], [-1.993654, 42.523262], [-1.996422, 42.523396], [-1.997778, 42.524976], [-1.999426, 42.525744], [-1.999909, 42.525562], [-2.000037, 42.525222], [-1.998465, 42.523426], [-1.997409, 42.522874]]]}}, {"type": "Feature", "properties": {"id": 71193, "popup-content": "<a href=\"/locations/users/71193/\">ACUNID - Ler\u00edn-Barranco grande pueblo</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.976859, 42.479885], [-1.976891, 42.479149], [-1.97467, 42.478841], [-1.971741, 42.479648], [-1.971205, 42.480668], [-1.972825, 42.479885], [-1.975453, 42.479521], [-1.976859, 42.479885]]]}}, {"type": "Feature", "properties": {"id": 68898, "popup-content": "<a href=\"/locations/users/68898/\">ACUNID - Lodosa-R\u00edo Ebro R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-2.076141, 42.419763], [-2.066357, 42.415517], [-2.065284, 42.414123], [-2.064597, 42.412761], [-2.064383, 42.411081], [-2.066142, 42.407108], [-2.067601, 42.405777], [-2.069833, 42.406031], [-2.068073, 42.410752], [-2.068717, 42.41259], [-2.070133, 42.414396], [-2.077987, 42.418134], [-2.076141, 42.419763]]]}}, {"type": "Feature", "properties": {"id": 68873, "popup-content": "<a href=\"/locations/users/68873/\">ACUNID - Lorca-Carrizal de Lorca</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.937065, 42.67859], [-1.936727, 42.678586], [-1.937494, 42.677608], [-1.937966, 42.677293], [-1.938652, 42.677486], [-1.937065, 42.67859]]]}}, {"type": "Feature", "properties": {"id": 67221, "popup-content": "<a href=\"/locations/users/67221/\">ACUNID - L\u00f3nguida-Embalse de Villaveta</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.421742, 42.790802], [-1.421399, 42.784125], [-1.421571, 42.780787], [-1.420155, 42.778015], [-1.415992, 42.778015], [-1.4114, 42.780787], [-1.411443, 42.7857], [-1.417923, 42.790109], [-1.421742, 42.790802]]]}}, {"type": "Feature", "properties": {"id": 68295, "popup-content": "<a href=\"/locations/users/68295/\">ACUNID - Marcilla-Soto de la Cueva R\u00edo Arag\u00f3n</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.718373, 42.3207], [-1.716542, 42.321102], [-1.715198, 42.320383], [-1.713395, 42.317865], [-1.715026, 42.31594], [-1.716442, 42.315179], [-1.720476, 42.314734], [-1.723137, 42.31521], [-1.723738, 42.316099], [-1.723695, 42.316987], [-1.72328, 42.318595], [-1.722078, 42.320245], [-1.719632, 42.320912], [-1.718373, 42.3207]]]}}, {"type": "Feature", "properties": {"id": 69828, "popup-content": "<a href=\"/locations/users/69828/\">ACUNID - Mendigorr\u00eda-R\u00edo Arga R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.858578, 42.586832], [-1.849823, 42.585315], [-1.839523, 42.611096], [-1.836433, 42.637997], [-1.846733, 42.64267], [-1.850338, 42.639765], [-1.845188, 42.630673], [-1.849823, 42.625999], [-1.847935, 42.61741], [-1.859608, 42.599848], [-1.858578, 42.586832]]]}}, {"type": "Feature", "properties": {"id": 72392, "popup-content": "<a href=\"/locations/users/72392/\">ACUNID - Milagro-Confluencia Ebro-Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.754122, 42.238812], [-1.74571, 42.223687], [-1.752234, 42.218856], [-1.768541, 42.221526], [-1.777296, 42.215805], [-1.785707, 42.220509], [-1.783991, 42.227246], [-1.777124, 42.223179], [-1.77249, 42.226738], [-1.763906, 42.226738], [-1.756353, 42.225085], [-1.753607, 42.228772], [-1.758928, 42.236652], [-1.754122, 42.238812]]]}}, {"type": "Feature", "properties": {"id": 69878, "popup-content": "<a href=\"/locations/users/69878/\">ACUNID - Milagro-Soto de Granjafr\u00eda R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.805191, 42.231757], [-1.800556, 42.228389], [-1.796951, 42.233155], [-1.788111, 42.226419], [-1.783648, 42.225211], [-1.780987, 42.226482], [-1.792917, 42.236905], [-1.799526, 42.238875], [-1.802187, 42.236396], [-1.805191, 42.231757]]]}}, {"type": "Feature", "properties": {"id": 67263, "popup-content": "<a href=\"/locations/users/67263/\">ACUNID - Monreal-Balsa del Canal</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.532207, 42.722299], [-1.531413, 42.720928], [-1.528687, 42.720786], [-1.528065, 42.721921], [-1.526542, 42.722756], [-1.526542, 42.724932], [-1.525662, 42.726697], [-1.530962, 42.724695], [-1.532056, 42.723544], [-1.532207, 42.722299]]]}}, {"type": "Feature", "properties": {"id": 68628, "popup-content": "<a href=\"/locations/users/68628/\">ACUNID - Murillo el Cuende-Rada-Arrozales de Rada</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.584048, 42.316257], [-1.591301, 42.3121], [-1.620183, 42.325142], [-1.615677, 42.32879], [-1.59452, 42.320604], [-1.586881, 42.31832], [-1.584048, 42.316257]]]}}, {"type": "Feature", "properties": {"id": 68627, "popup-content": "<a href=\"/locations/users/68627/\">ACUNID - Murillo el Cuende-Rada-Laguna de Rada</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.584477, 42.306355], [-1.583791, 42.3048], [-1.584134, 42.303499], [-1.583447, 42.301372], [-1.579628, 42.301182], [-1.577911, 42.302325], [-1.577182, 42.304165], [-1.577826, 42.305149], [-1.583962, 42.307244], [-1.584477, 42.306355]]]}}, {"type": "Feature", "properties": {"id": 72760, "popup-content": "<a href=\"/locations/users/72760/\">ACUNID - M\u00e9lida-R\u00edo Arag\u00f3n</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.585184, 42.370058], [-1.576288, 42.370403], [-1.570514, 42.36925], [-1.565208, 42.360372], [-1.555533, 42.362217], [-1.549915, 42.367175], [-1.549291, 42.373286], [-1.541488, 42.376975], [-1.535246, 42.37294], [-1.528847, 42.371095], [-1.526038, 42.365215], [-1.531969, 42.363485], [-1.536026, 42.363947], [-1.540083, 42.366599], [-1.5418, 42.372363], [-1.543985, 42.371095], [-1.543673, 42.363831], [-1.549135, 42.358642], [-1.559122, 42.355413], [-1.56989, 42.353799], [-1.574728, 42.360833], [-1.576757, 42.365561], [-1.584403, 42.366137], [-1.585184, 42.370058]]]}}, {"type": "Feature", "properties": {"id": 69397, "popup-content": "<a href=\"/locations/users/69397/\">ACUNID - Obanos-Barranco Salado</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.793193, 42.650505], [-1.793444, 42.651656], [-1.792965, 42.651917], [-1.791801, 42.651532], [-1.790113, 42.652468], [-1.78678, 42.651605], [-1.784992, 42.650511], [-1.787939, 42.648281], [-1.791759, 42.64888], [-1.793193, 42.650505]]]}}, {"type": "Feature", "properties": {"id": 70246, "popup-content": "<a href=\"/locations/users/70246/\">ACUNID - Olza-Izcue-Art\u00e1zcoz-Izcue-Art\u00e1zcoz R\u00edo Arakil</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.780343, 42.803966], [-1.776567, 42.80428], [-1.769271, 42.813096], [-1.772447, 42.817251], [-1.769271, 42.82298], [-1.770301, 42.82959], [-1.773477, 42.830534], [-1.776567, 42.825876], [-1.776052, 42.822728], [-1.782918, 42.819329], [-1.778626, 42.813537], [-1.778197, 42.809003], [-1.780343, 42.803966]]]}}, {"type": "Feature", "properties": {"id": 68903, "popup-content": "<a href=\"/locations/users/68903/\">ACUNID - Ol\u00f3riz-Embalse de Mairaga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.591387, 42.63642], [-1.584606, 42.635978], [-1.575251, 42.645512], [-1.579199, 42.646964], [-1.586494, 42.642481], [-1.588383, 42.647153], [-1.593447, 42.644502], [-1.591387, 42.63642]]]}}, {"type": "Feature", "properties": {"id": 67483, "popup-content": "<a href=\"/locations/users/67483/\">ACUNID - Orbaitzeta-Embalse de Irabia R\u00edo Irati</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.161978, 42.98632], [-1.158374, 42.982364], [-1.152966, 42.984876], [-1.14301, 42.984625], [-1.133397, 42.98249], [-1.130307, 42.988518], [-1.13683, 42.994608], [-1.145499, 43.000383], [-1.15228, 42.995863], [-1.151679, 42.992096], [-1.159489, 42.99172], [-1.161978, 42.98632]]]}}, {"type": "Feature", "properties": {"id": 68994, "popup-content": "<a href=\"/locations/users/68994/\">ACUNID - Oroz-Betelu-Presa del pueblo R\u00edo Irati</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.303784, 42.893943], [-1.304256, 42.894682], [-1.305737, 42.893636], [-1.304417, 42.891978], [-1.304256, 42.891255], [-1.302239, 42.891514], [-1.302025, 42.892795], [-1.303902, 42.893361], [-1.303784, 42.893943]]]}}, {"type": "Feature", "properties": {"id": 69469, "popup-content": "<a href=\"/locations/users/69469/\">ACUNID - Pamplona-Lago de Arrosadia</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.64332, 42.79966], [-1.642869, 42.79866], [-1.641313, 42.798872], [-1.64171, 42.799801], [-1.64332, 42.79966]]]}}, {"type": "Feature", "properties": {"id": 69468, "popup-content": "<a href=\"/locations/users/69468/\">ACUNID - Pamplona-Lago de Mendillorri</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.618005, 42.810924], [-1.618563, 42.808625], [-1.616074, 42.808216], [-1.614937, 42.810687], [-1.617426, 42.811585], [-1.618005, 42.810924]]]}}, {"type": "Feature", "properties": {"id": 69466, "popup-content": "<a href=\"/locations/users/69466/\">ACUNID - Pamplona-Los Patos 1</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.652683, 42.816047], [-1.652276, 42.815366], [-1.651251, 42.815496], [-1.651385, 42.816126], [-1.652683, 42.816047]]]}}, {"type": "Feature", "properties": {"id": 69467, "popup-content": "<a href=\"/locations/users/69467/\">ACUNID - Pamplona-Los Patos 2</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.653778, 42.817798], [-1.653579, 42.817511], [-1.652437, 42.817928], [-1.652217, 42.817609], [-1.651589, 42.817598], [-1.65145, 42.818172], [-1.653123, 42.818503], [-1.653778, 42.817798]]]}}, {"type": "Feature", "properties": {"id": 69566, "popup-content": "<a href=\"/locations/users/69566/\">ACUNID - Pamplona-Parque de Yamaguchi</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.663922, 42.808818], [-1.663729, 42.808086], [-1.662849, 42.80787], [-1.661299, 42.808452], [-1.661792, 42.809153], [-1.662377, 42.809349], [-1.663922, 42.808818]]]}}, {"type": "Feature", "properties": {"id": 71584, "popup-content": "<a href=\"/locations/users/71584/\">ACUNID - Pamplona-R\u00edo Arga R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.682088, 42.809223], [-1.682646, 42.81275], [-1.683891, 42.816244], [-1.681659, 42.818668], [-1.676681, 42.819392], [-1.671488, 42.818983], [-1.666124, 42.81914], [-1.663635, 42.819833], [-1.660931, 42.823452], [-1.658013, 42.825719], [-1.65458, 42.8249], [-1.65252, 42.821218], [-1.6487, 42.821123], [-1.645267, 42.822477], [-1.645696, 42.825876], [-1.64428, 42.828992], [-1.642692, 42.830471], [-1.639388, 42.831384], [-1.635869, 42.828174], [-1.63501, 42.825278], [-1.636684, 42.822288], [-1.636212, 42.819738], [-1.633723, 42.817188], [-1.631792, 42.815992], [-1.629345, 42.81807], [-1.628358, 42.82084], [-1.627071, 42.822603], [-1.622179, 42.82276], [-1.622221, 42.820966], [-1.626427, 42.820273], [-1.627071, 42.817472], [-1.629345, 42.815016], [-1.63265, 42.814103], [-1.637585, 42.816622], [-1.639774, 42.822603], [-1.637285, 42.825152], [-1.6378, 42.827607], [-1.640074, 42.829464], [-1.642735, 42.826443], [-1.642778, 42.821784], [-1.645181, 42.81977], [-1.650374, 42.818322], [-1.653764, 42.819329], [-1.656511, 42.822728], [-1.657841, 42.823075], [-1.660159, 42.81914], [-1.662261, 42.817314], [-1.669514, 42.816936], [-1.67475, 42.817692], [-1.679642, 42.817125], [-1.681445, 42.814513], [-1.679471, 42.809885], [-1.682088, 42.809223]]]}}, {"type": "Feature", "properties": {"id": 69875, "popup-content": "<a href=\"/locations/users/69875/\">ACUNID - Peralta-Soto de Santa Eulalia R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.78103, 42.361048], [-1.776996, 42.357846], [-1.775579, 42.354357], [-1.771588, 42.358004], [-1.771975, 42.36127], [-1.777081, 42.362317], [-1.78103, 42.361048]]]}}, {"type": "Feature", "properties": {"id": 68998, "popup-content": "<a href=\"/locations/users/68998/\">ACUNID - Peralta-Sotos de la Muga y Santa Eulal\u00eda R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.793785, 42.337505], [-1.790819, 42.335453], [-1.776395, 42.350298], [-1.770644, 42.360447], [-1.775794, 42.362413], [-1.781116, 42.362032], [-1.77794, 42.3581], [-1.780944, 42.358671], [-1.783948, 42.362096], [-1.787553, 42.372179], [-1.791072, 42.371671], [-1.789527, 42.362222], [-1.786351, 42.356768], [-1.789284, 42.351729], [-1.788263, 42.34669], [-1.793785, 42.337505]]]}}, {"type": "Feature", "properties": {"id": 68626, "popup-content": "<a href=\"/locations/users/68626/\">ACUNID - Pitillas-Laguna de Pitillas</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.596708, 42.408564], [-1.588812, 42.400642], [-1.580057, 42.397346], [-1.574907, 42.408564], [-1.56641, 42.416359], [-1.574306, 42.425609], [-1.583576, 42.427067], [-1.59173, 42.423519], [-1.590099, 42.417373], [-1.596537, 42.41186], [-1.596708, 42.408564]]]}}, {"type": "Feature", "properties": {"id": 69829, "popup-content": "<a href=\"/locations/users/69829/\">ACUNID - Puente la Reina-R\u00edo Arga R\u00edo Arga</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.837978, 42.63724], [-1.829567, 42.636103], [-1.833344, 42.646458], [-1.842613, 42.657063], [-1.839008, 42.656182], [-1.814117, 42.66729], [-1.816349, 42.674611], [-1.820984, 42.678776], [-1.8536, 42.660977], [-1.853256, 42.655422], [-1.845188, 42.650498], [-1.842785, 42.644185], [-1.837978, 42.63724]]]}}, {"type": "Feature", "properties": {"id": 72009, "popup-content": "<a href=\"/locations/users/72009/\">ACUNID - Pueyo-R\u00edo Cidacos</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.647413, 42.571809], [-1.646576, 42.571809], [-1.646082, 42.569012], [-1.645117, 42.56789], [-1.645782, 42.567621], [-1.647027, 42.569438], [-1.647413, 42.571809]]]}}, {"type": "Feature", "properties": {"id": 72391, "popup-content": "<a href=\"/locations/users/72391/\">ACUNID - San Adri\u00e1n-R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.92235, 42.32987], [-1.931791, 42.325428], [-1.941748, 42.337864], [-1.961145, 42.336215], [-1.964235, 42.338118], [-1.960974, 42.342813], [-1.966124, 42.348776], [-1.970243, 42.346746], [-1.967497, 42.342559], [-1.971617, 42.337864], [-1.965437, 42.331773], [-1.955137, 42.33355], [-1.943636, 42.332535], [-1.937628, 42.325301], [-1.93471, 42.319716], [-1.92853, 42.319209], [-1.923552, 42.324539], [-1.92235, 42.32987]]]}}, {"type": "Feature", "properties": {"id": 67261, "popup-content": "<a href=\"/locations/users/67261/\">ACUNID - Sang\u00fcesa-Balsa de la Mueda</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.324131, 42.569217], [-1.323252, 42.563275], [-1.317329, 42.56427], [-1.316814, 42.567952], [-1.320591, 42.569217], [-1.324131, 42.569217]]]}}, {"type": "Feature", "properties": {"id": 72022, "popup-content": "<a href=\"/locations/users/72022/\">ACUNID - Sang\u00fcesa-Barranco Los Paules</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.346104, 42.536655], [-1.345203, 42.536781], [-1.343765, 42.532892], [-1.343808, 42.530646], [-1.34443, 42.530662], [-1.344409, 42.532765], [-1.346104, 42.536655]]]}}, {"type": "Feature", "properties": {"id": 72023, "popup-content": "<a href=\"/locations/users/72023/\">ACUNID - Sang\u00fcesa-Barranco Valdecom\u00fan</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.327736, 42.534188], [-1.326921, 42.534346], [-1.32632, 42.533587], [-1.326685, 42.533018], [-1.32617, 42.532417], [-1.326728, 42.531311], [-1.326427, 42.530125], [-1.327114, 42.529887], [-1.327672, 42.53139], [-1.327736, 42.534188]]]}}, {"type": "Feature", "properties": {"id": 72025, "popup-content": "<a href=\"/locations/users/72025/\">ACUNID - Sang\u00fcesa-Barranco de Pe\u00f1a</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.319239, 42.537683], [-1.32014, 42.537351], [-1.316578, 42.534252], [-1.315784, 42.534615], [-1.317329, 42.536291], [-1.319239, 42.537683]]]}}, {"type": "Feature", "properties": {"id": 72021, "popup-content": "<a href=\"/locations/users/72021/\">ACUNID - Sang\u00fcesa-Barranco del Fusta\u00f1o</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.353207, 42.530243], [-1.352617, 42.530425], [-1.352026, 42.528369], [-1.352284, 42.528274], [-1.353207, 42.530243]]]}}, {"type": "Feature", "properties": {"id": 67262, "popup-content": "<a href=\"/locations/users/67262/\">ACUNID - Sang\u00fcesa-Depuradora de Aguas</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.297524, 42.563796], [-1.293125, 42.566277], [-1.289907, 42.565203], [-1.294584, 42.562152], [-1.297524, 42.563796]]]}}, {"type": "Feature", "properties": {"id": 72761, "popup-content": "<a href=\"/locations/users/72761/\">ACUNID - Santacara-Carcastillo-R\u00edo Arag\u00f3n</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.526085, 42.369504], [-1.532796, 42.37181], [-1.527178, 42.378497], [-1.510636, 42.383569], [-1.50455, 42.379995], [-1.493314, 42.375269], [-1.484418, 42.374692], [-1.475211, 42.375038], [-1.470998, 42.383453], [-1.465536, 42.386566], [-1.450086, 42.387027], [-1.448682, 42.379419], [-1.462414, 42.381033], [-1.471622, 42.369158], [-1.485511, 42.368121], [-1.492065, 42.369504], [-1.502833, 42.371003], [-1.510168, 42.375384], [-1.51641, 42.373539], [-1.526085, 42.369504]]]}}, {"type": "Feature", "properties": {"id": 69471, "popup-content": "<a href=\"/locations/users/69471/\">ACUNID - Sarriguren-Lago de Sarriguren</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.596134, 42.813572], [-1.595893, 42.811825], [-1.59394, 42.8116], [-1.593538, 42.812419], [-1.594461, 42.812883], [-1.595255, 42.813887], [-1.596134, 42.813572]]]}}, {"type": "Feature", "properties": {"id": 67215, "popup-content": "<a href=\"/locations/users/67215/\">ACUNID - Tafalla-Balsa de Cabriteras</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.712902, 42.490066], [-1.713492, 42.489504], [-1.713245, 42.488911], [-1.712269, 42.488737], [-1.71199, 42.489829], [-1.712902, 42.490066]]]}}, {"type": "Feature", "properties": {"id": 67216, "popup-content": "<a href=\"/locations/users/67216/\">ACUNID - Tafalla-Balsa de El Juncal</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.718652, 42.517947], [-1.718287, 42.516318], [-1.712708, 42.513345], [-1.712301, 42.512554], [-1.709318, 42.512143], [-1.707129, 42.512839], [-1.707966, 42.516223], [-1.712279, 42.518422], [-1.716592, 42.519434], [-1.718652, 42.517947]]]}}, {"type": "Feature", "properties": {"id": 67217, "popup-content": "<a href=\"/locations/users/67217/\">ACUNID - Tafalla-Balsa de Romerales</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.736569, 42.517789], [-1.736248, 42.515575], [-1.734381, 42.514768], [-1.732192, 42.51567], [-1.729531, 42.517615], [-1.732471, 42.518295], [-1.736569, 42.517789]]]}}, {"type": "Feature", "properties": {"id": 67212, "popup-content": "<a href=\"/locations/users/67212/\">ACUNID - Tafalla-Balsa del Corral del Plano</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.697066, 42.501034], [-1.696905, 42.500073], [-1.695719, 42.500022], [-1.694861, 42.500398], [-1.69492, 42.501042], [-1.695483, 42.501402], [-1.697066, 42.501034]]]}}, {"type": "Feature", "properties": {"id": 72026, "popup-content": "<a href=\"/locations/users/72026/\">ACUNID - Tafalla-Balsa del Monte/Fuente del Churrero</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.710949, 42.570939], [-1.708417, 42.571066], [-1.709318, 42.568221], [-1.710219, 42.561204], [-1.708632, 42.556937], [-1.709018, 42.555925], [-1.710434, 42.556084], [-1.709704, 42.557822], [-1.710734, 42.560067], [-1.711121, 42.562248], [-1.710305, 42.564966], [-1.710005, 42.567431], [-1.710949, 42.570939]]]}}, {"type": "Feature", "properties": {"id": 67214, "popup-content": "<a href=\"/locations/users/67214/\">ACUNID - Tafalla-Balsa grande-Balsa peque\u00f1a</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.697044, 42.473647], [-1.696572, 42.471147], [-1.695199, 42.467633], [-1.694212, 42.465797], [-1.692882, 42.464435], [-1.691852, 42.466398], [-1.69374, 42.471843], [-1.695585, 42.473489], [-1.697044, 42.473647]]]}}, {"type": "Feature", "properties": {"id": 68901, "popup-content": "<a href=\"/locations/users/68901/\">ACUNID - Tafalla-Cados de Berroeta</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.748908, 42.521743], [-1.747963, 42.523119], [-1.744316, 42.524653], [-1.742406, 42.523878], [-1.745839, 42.520367], [-1.748908, 42.521743]]]}}, {"type": "Feature", "properties": {"id": 72010, "popup-content": "<a href=\"/locations/users/72010/\">ACUNID - Tafalla-R\u00edo Cidacos</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.674213, 42.524305], [-1.672926, 42.524179], [-1.673398, 42.526076], [-1.671939, 42.52595], [-1.670995, 42.526235], [-1.670651, 42.527278], [-1.671038, 42.528069], [-1.669793, 42.529429], [-1.669879, 42.532718], [-1.671209, 42.533414], [-1.671767, 42.532781], [-1.670609, 42.531484], [-1.670609, 42.530093], [-1.672368, 42.528069], [-1.671767, 42.527152], [-1.674042, 42.52693], [-1.674814, 42.525792], [-1.674213, 42.524305]]]}}, {"type": "Feature", "properties": {"id": 72759, "popup-content": "<a href=\"/locations/users/72759/\">ACUNID - Traibuenas-R\u00edo Arag\u00f3n</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.634341, 42.354018], [-1.63715, 42.348251], [-1.619984, 42.343292], [-1.606251, 42.348597], [-1.585028, 42.353095], [-1.569414, 42.354992], [-1.570187, 42.3581], [-1.579456, 42.363174], [-1.586065, 42.37072], [-1.591129, 42.366598], [-1.585722, 42.358671], [-1.612962, 42.354595], [-1.621857, 42.351596], [-1.634341, 42.354018]]]}}, {"type": "Feature", "properties": {"id": 69809, "popup-content": "<a href=\"/locations/users/69809/\">ACUNID - Tudela-Arroyo de Murillo de las Limas</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.574285, 42.115001], [-1.573523, 42.117882], [-1.571764, 42.120063], [-1.571442, 42.120938], [-1.566249, 42.127113], [-1.566303, 42.128562], [-1.563385, 42.130185], [-1.562011, 42.131426], [-1.562183, 42.132476], [-1.561539, 42.133336], [-1.559694, 42.134322], [-1.559908, 42.135659], [-1.557033, 42.138682], [-1.555917, 42.137441], [-1.572568, 42.114524], [-1.574285, 42.115001]]]}}, {"type": "Feature", "properties": {"id": 69616, "popup-content": "<a href=\"/locations/users/69616/\">ACUNID - Tudela-Balsa de Agua Salada</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.710091, 42.11072], [-1.711507, 42.106756], [-1.709511, 42.104607], [-1.703417, 42.10666], [-1.698697, 42.105864], [-1.695135, 42.107679], [-1.690178, 42.111707], [-1.690607, 42.115113], [-1.695285, 42.113091], [-1.700907, 42.114986], [-1.706614, 42.113378], [-1.710091, 42.11072]]]}}, {"type": "Feature", "properties": {"id": 67305, "popup-content": "<a href=\"/locations/users/67305/\">ACUNID - Tudela-Balsa del Cardete</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.651661, 42.046711], [-1.652477, 42.05044], [-1.653807, 42.051173], [-1.65385, 42.051651], [-1.65355, 42.05283], [-1.651103, 42.054551], [-1.650717, 42.054423], [-1.649816, 42.052479], [-1.648571, 42.051683], [-1.648529, 42.049516], [-1.648057, 42.047859], [-1.647155, 42.046552], [-1.65046, 42.04499], [-1.650546, 42.044353], [-1.651061, 42.043971], [-1.651404, 42.044034], [-1.651103, 42.045341], [-1.651661, 42.046711]]]}}, {"type": "Feature", "properties": {"id": 67304, "popup-content": "<a href=\"/locations/users/67304/\">ACUNID - Tudela-Balsa del Pulguer</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.714475, 42.060477], [-1.71353, 42.060796], [-1.711468, 42.06035], [-1.710352, 42.059521], [-1.709664, 42.059394], [-1.709235, 42.059712], [-1.706744, 42.058374], [-1.70494, 42.057928], [-1.704682, 42.056462], [-1.703566, 42.054805], [-1.703308, 42.052129], [-1.705627, 42.052001], [-1.706486, 42.052256], [-1.709922, 42.051683], [-1.711468, 42.053403], [-1.713014, 42.053595], [-1.713272, 42.054168], [-1.714475, 42.054487], [-1.714131, 42.055315], [-1.715458, 42.056733], [-1.715286, 42.057721], [-1.714814, 42.057817], [-1.714127, 42.059378], [-1.715286, 42.059537], [-1.71563, 42.060334], [-1.714475, 42.060477]]]}}, {"type": "Feature", "properties": {"id": 72015, "popup-content": "<a href=\"/locations/users/72015/\">ACUNID - Tudela-Carrizal de Valdelafuente</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.659536, 42.140655], [-1.662197, 42.138268], [-1.662884, 42.136486], [-1.667733, 42.133272], [-1.668591, 42.130694], [-1.670523, 42.130503], [-1.671209, 42.131808], [-1.675072, 42.130153], [-1.676102, 42.129325], [-1.677818, 42.13098], [-1.67623, 42.133049], [-1.667562, 42.137568], [-1.667347, 42.139], [-1.668978, 42.139955], [-1.673527, 42.139255], [-1.678891, 42.140337], [-1.680307, 42.141323], [-1.679535, 42.141928], [-1.67563, 42.141673], [-1.671638, 42.142055], [-1.668549, 42.143742], [-1.660438, 42.144187], [-1.658871, 42.14266], [-1.659536, 42.140655]]]}}, {"type": "Feature", "properties": {"id": 67496, "popup-content": "<a href=\"/locations/users/67496/\">ACUNID - Tudela-Carrizal de la Torre R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.680927, 42.053595], [-1.680541, 42.054869], [-1.680756, 42.055283], [-1.681056, 42.055538], [-1.682302, 42.055283], [-1.683333, 42.055507], [-1.683547, 42.055857], [-1.684234, 42.059394], [-1.686468, 42.059235], [-1.688658, 42.058311], [-1.69815, 42.057259], [-1.70296, 42.055283], [-1.701242, 42.050281], [-1.698966, 42.051237], [-1.691793, 42.052575], [-1.688143, 42.051842], [-1.686382, 42.05283], [-1.68475, 42.053244], [-1.68329, 42.053372], [-1.68097, 42.052639], [-1.680927, 42.053595]]]}}, {"type": "Feature", "properties": {"id": 72014, "popup-content": "<a href=\"/locations/users/72014/\">ACUNID - Tudela-La Mejanica de Mosquera</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.571817, 42.055315], [-1.570058, 42.057514], [-1.562204, 42.055538], [-1.557398, 42.05283], [-1.554823, 42.050472], [-1.55684, 42.048273], [-1.561303, 42.047349], [-1.564479, 42.048177], [-1.565638, 42.051555], [-1.571817, 42.055315]]]}}, {"type": "Feature", "properties": {"id": 69779, "popup-content": "<a href=\"/locations/users/69779/\">ACUNID - Tudela-R\u00edo Ebro R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.558385, 42.049101], [-1.563363, 42.052734], [-1.563535, 42.055666], [-1.566195, 42.057833], [-1.598296, 42.067327], [-1.59615, 42.074845], [-1.602759, 42.074909], [-1.604905, 42.06567], [-1.595635, 42.059936], [-1.558385, 42.049101]]]}}, {"type": "Feature", "properties": {"id": 69775, "popup-content": "<a href=\"/locations/users/69775/\">ACUNID - Tudela-Soto de Ramalete R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.654687, 42.161877], [-1.64722, 42.17021], [-1.635633, 42.168556], [-1.639881, 42.15825], [-1.638594, 42.153223], [-1.646791, 42.15386], [-1.654687, 42.161877]]]}}, {"type": "Feature", "properties": {"id": 69778, "popup-content": "<a href=\"/locations/users/69778/\">ACUNID - Tudela-Soto de Traslapuente R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.604648, 42.093509], [-1.596837, 42.092936], [-1.598554, 42.087204], [-1.593661, 42.079432], [-1.598382, 42.074145], [-1.603789, 42.074527], [-1.606793, 42.084465], [-1.607137, 42.089815], [-1.604648, 42.093509]]]}}, {"type": "Feature", "properties": {"id": 69777, "popup-content": "<a href=\"/locations/users/69777/\">ACUNID - Tudela-Soto de los Tetones R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.593747, 42.111977], [-1.588941, 42.101534], [-1.587353, 42.096821], [-1.5904, 42.092936], [-1.608081, 42.091981], [-1.606278, 42.105737], [-1.597524, 42.113251], [-1.593747, 42.111977]]]}}, {"type": "Feature", "properties": {"id": 69776, "popup-content": "<a href=\"/locations/users/69776/\">ACUNID - Tudela-Sotos de Murillo de las Limas y la Remonta R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.639924, 42.159013], [-1.639838, 42.156659], [-1.638036, 42.153796], [-1.629195, 42.144951], [-1.592889, 42.126493], [-1.597137, 42.114906], [-1.591301, 42.10701], [-1.585808, 42.125983], [-1.589026, 42.132985], [-1.629281, 42.156723], [-1.639924, 42.159013]]]}}, {"type": "Feature", "properties": {"id": 68796, "popup-content": "<a href=\"/locations/users/68796/\">ACUNID - Tudela-Vertedero de El Culebrete</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.734205, 42.070564], [-1.736353, 42.0705], [-1.737298, 42.070054], [-1.740733, 42.066932], [-1.741936, 42.065148], [-1.739617, 42.060433], [-1.73893, 42.059987], [-1.737555, 42.059987], [-1.731972, 42.061516], [-1.730769, 42.062344], [-1.728622, 42.062727], [-1.728192, 42.064128], [-1.728192, 42.065785], [-1.73034, 42.068844], [-1.731886, 42.070755], [-1.734205, 42.070564]]]}}, {"type": "Feature", "properties": {"id": 68451, "popup-content": "<a href=\"/locations/users/68451/\">ACUNID - Ultzama-Balsa de Auza o de la Yeguada</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.706851, 43.001948], [-1.706561, 43.003737], [-1.705155, 43.002811], [-1.704533, 43.001509], [-1.703128, 43.002544], [-1.702173, 43.001273], [-1.702666, 42.999735], [-1.704158, 42.9987], [-1.706893, 42.999547], [-1.707612, 43.00041], [-1.707891, 43.001477], [-1.706851, 43.001948]]]}}, {"type": "Feature", "properties": {"id": 72027, "popup-content": "<a href=\"/locations/users/72027/\">ACUNID - Valtierra-La Torna</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.647606, 42.181405], [-1.644859, 42.181533], [-1.642456, 42.180197], [-1.641083, 42.17479], [-1.640739, 42.171801], [-1.644516, 42.169892], [-1.645718, 42.173264], [-1.645718, 42.176762], [-1.647606, 42.181405]]]}}, {"type": "Feature", "properties": {"id": 68879, "popup-content": "<a href=\"/locations/users/68879/\">ACUNID - Viana-Embalse de las Ca\u00f1as o del Salobre</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-2.40483, 42.490682], [-2.402169, 42.490239], [-2.400753, 42.489637], [-2.395947, 42.489986], [-2.393887, 42.487359], [-2.391483, 42.48584], [-2.391483, 42.484954], [-2.390496, 42.482928], [-2.392728, 42.480523], [-2.394831, 42.479985], [-2.398908, 42.480396], [-2.400453, 42.479162], [-2.402942, 42.478909], [-2.405388, 42.479921], [-2.407104, 42.480903], [-2.40895, 42.483181], [-2.411568, 42.48546], [-2.412083, 42.488498], [-2.411997, 42.489416], [-2.411053, 42.490017], [-2.406976, 42.490903], [-2.40483, 42.490682]]]}}, {"type": "Feature", "properties": {"id": 68893, "popup-content": "<a href=\"/locations/users/68893/\">ACUNID - Viana-Soto Recajo R\u00edo Ebro</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-2.33947, 42.463176], [-2.339212, 42.464791], [-2.336981, 42.466785], [-2.335522, 42.467038], [-2.333204, 42.465867], [-2.334663, 42.463904], [-2.334234, 42.462701], [-2.332046, 42.461498], [-2.329857, 42.45773], [-2.333419, 42.456781], [-2.336423, 42.461941], [-2.33947, 42.463176]]]}}, {"type": "Feature", "properties": {"id": 68995, "popup-content": "<a href=\"/locations/users/68995/\">ACUNID - Villafranca-Badina de Escudera (este)</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.701744, 42.27226], [-1.690457, 42.268322], [-1.686122, 42.258921], [-1.694062, 42.258889], [-1.699297, 42.268068], [-1.702731, 42.271656], [-1.701744, 42.27226]]]}}, {"type": "Feature", "properties": {"id": 68996, "popup-content": "<a href=\"/locations/users/68996/\">ACUNID - Villafranca-Badina de Escudera (oeste)</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.706293, 42.265781], [-1.705005, 42.267433], [-1.696937, 42.263844], [-1.696422, 42.261399], [-1.706293, 42.265781]]]}}, {"type": "Feature", "properties": {"id": 72772, "popup-content": "<a href=\"/locations/users/72772/\">ACUNID - Villafranca-Badina de Escudera completo</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.686519, 42.254584], [-1.678258, 42.258951], [-1.686198, 42.264907], [-1.694137, 42.266494], [-1.707977, 42.271417], [-1.734477, 42.281816], [-1.738447, 42.277768], [-1.706368, 42.263954], [-1.695639, 42.257125], [-1.69242, 42.254187], [-1.686519, 42.254584]]]}}, {"type": "Feature", "properties": {"id": 68997, "popup-content": "<a href=\"/locations/users/68997/\">ACUNID - Villafranca-Badina de Escudera, Villafranca zona no protegida</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.70625, 42.265686], [-1.703246, 42.269592], [-1.722901, 42.278515], [-1.736462, 42.281659], [-1.738136, 42.27915], [-1.706378, 42.265083], [-1.70625, 42.265686]]]}}, {"type": "Feature", "properties": {"id": 71188, "popup-content": "<a href=\"/locations/users/71188/\">ACUNID - Villamayor de Monjard\u00edn-Carrizal de Urbiola</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-2.102075, 42.621038], [-2.10215, 42.620319], [-2.103384, 42.619506], [-2.105948, 42.618701], [-2.106174, 42.61908], [-2.102075, 42.621038]]]}}, {"type": "Feature", "properties": {"id": 69830, "popup-content": "<a href=\"/locations/users/69830/\">ACUNID - Yerri-Contraembalse de Alloz R\u00edo Salado</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.944923, 42.703252], [-1.950245, 42.699279], [-1.950159, 42.695367], [-1.946468, 42.694169], [-1.944752, 42.696377], [-1.944923, 42.703252]]]}}, {"type": "Feature", "properties": {"id": 68874, "popup-content": "<a href=\"/locations/users/68874/\">ACUNID - Yerri-Embalse de Alloz R\u00edo Salado</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.937542, 42.747326], [-1.94046, 42.741464], [-1.93574, 42.736736], [-1.940546, 42.734782], [-1.940632, 42.731251], [-1.945868, 42.731567], [-1.943722, 42.727658], [-1.954708, 42.723307], [-1.963377, 42.725325], [-1.957884, 42.71574], [-1.962433, 42.714857], [-1.955481, 42.708361], [-1.94458, 42.704703], [-1.940289, 42.706154], [-1.94046, 42.715109], [-1.937113, 42.716749], [-1.937628, 42.719902], [-1.930418, 42.722172], [-1.927328, 42.730432], [-1.928444, 42.741527], [-1.937542, 42.747326]]]}}, {"type": "Feature", "properties": {"id": 69811, "popup-content": "<a href=\"/locations/users/69811/\">ACUNID - Yesa-Embalse de Yesa</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.193562, 42.620065], [-1.192875, 42.606674], [-1.165409, 42.599093], [-1.113052, 42.589362], [-1.106873, 42.592016], [-1.09726, 42.597829], [-1.097603, 42.605158], [-1.101723, 42.622592], [-1.173306, 42.625876], [-1.193562, 42.620065]]]}}, {"type": "Feature", "properties": {"id": 72008, "popup-content": "<a href=\"/locations/users/72008/\">ACUNID - Yesa-R\u00edo Arag\u00f3n, piscifactor\u00eda</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.21562, 42.618991], [-1.213517, 42.619907], [-1.206779, 42.613244], [-1.207552, 42.612233], [-1.21562, 42.618991]]]}}, {"type": "Feature", "properties": {"id": 65922, "popup-content": "<a href=\"/locations/users/65922/\">ACUNID - Zizur-Colonia de Ardeidas de la Variante</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.704147, 42.79976], [-1.704662, 42.798359], [-1.703203, 42.797493], [-1.701744, 42.797178], [-1.699104, 42.797304], [-1.69728, 42.798186], [-1.697559, 42.799209], [-1.701808, 42.800547], [-1.704147, 42.79976]]]}}, {"type": "Feature", "properties": {"id": 71796, "popup-content": "<a href=\"/locations/users/71796/\">ACUNID-Balsa de Agua Salada</a>"}, "geometry": {"type": "Polygon", "coordinates": [[[-1.706234, 42.113552], [-1.71133, 42.108657], [-1.711759, 42.107623], [-1.710579, 42.105394], [-1.707736, 42.105434], [-1.705536, 42.107264], [-1.704463, 42.107424], [-1.703605, 42.107424], [-1.702264, 42.106827], [-1.698616, 42.106628], [-1.696309, 42.107981], [-1.695076, 42.109732], [-1.693949, 42.110209], [-1.693037, 42.11005], [-1.692232, 42.110528], [-1.692232, 42.111364], [-1.692823, 42.11212], [-1.695827, 42.112557], [-1.70044, 42.114786], [-1.701567, 42.113552], [-1.702728, 42.113095], [-1.703774, 42.113056], [-1.705536, 42.11391], [-1.706234, 42.113552]]]}}]}</script>
+        <script>
+            $(function () {
+                var options = L.extend({
+                    baselayers: baselayers,
+                    searchControl: false,
+                    preventAccidentalScroll: true,
+                    center: SITE_INFO.map.center,
+                    zoom: SITE_INFO.map.zoom,
+                    minimap: {width: 100, height: 100, minimized: L.Browser.mobile},
+                    layersControlOptions: {collapsed:true},
+                    scaleControl: true
+                }, window.teramapOptions);
+
+                var geojson = document.getElementById('geojson').textContent;
+                if (geojson) {
+                    options['geojson'] = JSON.parse(geojson);
+                }
+
+                var map = window.map = teramap.map_with_geojson('teramap', options);
+                if (map.geojson_layer) {
+                    map.geojson_layer.on('ready', function () {
+                        var properties = this._geojson.properties || {};
+                        if (properties.legend) {
+                            $('#teramap').after(
+                                '<div class="panel panel-default"><div class="panel-body">' +
+                                properties.legend +
+                                '</div></div>'
+                            );
+                        }
+                        map.reload();
+                    });
+                }
+                // extend teramap focusOnFeature function beyond map scope
+                window.focusOnFeature = function (key, value) {
+                    map.focusOnFeature(key, value);
+                };
+
+                window.zoomExtent = function () {
+                    map.zoomExtent();
+                };
+                window.zoomExtent();
+
+                // add zoom all link in div below map div
+                var teramap_div = $('#show_all');
+                teramap_div.append(
+                    '<div class="pull-right" id="teramap-zoom-out"><a href="javascript:zoomExtent()">mostrar todas las localizaciones</a></div>'
+                );
+
+                if (window.teramapCallback) {
+                    window.teramapCallback(map);
+                }
+            });
+        </script>
+    
+
+
+        </div>
+    </div>
+
+
+
+    
+
+            </div>
+        </div>
+    </div>
+
+    <div class="app-footer">
+        <div class="container">
+            
+
+
+
+
+<div class="app-footer-content">
+    <div class="row">
+        <div class="col-sm-4">
+            <h5>Aplicaciones móviles</h5>
+
+            <p>Utiliza nuestras aplicaciones móviles gratis, identifica especies y registrar tus listas y observaciones.</p>
+            <p>
+                <a href="/apps/" class="btn btn-default">
+                    Aplicaciones móviles
+                    &nbsp;
+                    <i class="fab fa-apple" title="Apple"></i>
+                    <i class="fab fa-android" title="Android"></i>
+                </a>
+            </p>
+        </div>
+        <div class="col-sm-5">
+            <h5>Nuestros socios</h5>
+
+            <p class="app-footer-logo-bar">
+                <a href="https://www.naturalis.nl" target="_blank">
+                    <img src="/static/img/logo/logo_naturalis.svg" alt="Naturalis Biodiversity Center">
+                </a>
+
+                
+                    <a href="https://www.natuurpunt.be" target="_blank">
+                        <img src="/static/img/logo/natuurpunt_150x150.png" alt="Natuurpunt">
+                    </a>
+
+                    <a href="http://www.natagora.be/" target="_blank">
+                        <img src="/static/img/logo/logo-natagora.svg" alt="Natagora">
+                    </a>
+                
+
+                <a href="https://zostera.nl" target="_blank">
+                    <img src="/static/img/logo/zostera_logo_with_name.svg" alt="Zostera IT &amp; Consultancy">
+                </a>
+            </p>
+        </div>
+        <div class="col-sm-3 app-footer-partners">
+            <h5>Contacto</h5>
+
+            <ul class="list-unstyled">
+                <li>
+                    
+                        <a href="mailto:info@observation.org" class="app-link-hidden">
+                            <i class="fas fa-envelope fa-fw"></i>&nbsp; info@observation.org
+                        </a>
+                    
+                </li>
+                <li>
+                    <a href="/pages/work/" target="_blank" class="app-link-hidden">
+                        <i class="fas fa-laptop-code fa-fw"></i>&nbsp;
+                        Trabaja en Observation.org
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="https://twitter.com/observation" target="_blank" class="app-link-hidden">
+                            <i class="fab fa-twitter fa-fw"></i>&nbsp; Twitter
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://facebook.com/observation.org" target="_blank" class="app-link-hidden">
+                            <i class="fab fa-facebook fa-fw"></i>&nbsp; Facebook
+                        </a>
+                    </li>
+                
+                <li>
+                    <a href="https://www.youtube.com/channel/UCwpWQGpy8xHJiwHUj8xwCYg/playlists" target="_blank" class="app-link-hidden">
+                        <i class="fab fa-youtube fa-fw"></i>&nbsp; YouTube
+                    </a>
+                </li>
+                <li>
+                    <a href="https://observation-international.org/en/" target="_blank" class="app-link-hidden">
+                        <i class="fas fa-globe fa-fw"></i>&nbsp; Corporate website
+                    </a>
+                </li>
+                
+            </ul>
+
+            <a href="/donate/" class="btn btn-success">Haz tu donación</a>
+        </div>
+    </div>
+</div>
+
+<div style="clear: both"></div>
+<p class="app-footer-powered-by">
+    Powered by <a href="https://observation-international.org" target="_blank">Observation International</a>
+    &copy; 2023
+</p>
+
+<a href="/generic/toggle-desktop-version/"
+   class="btn btn-primary visible-xs">
+    
+        Ver versión de escritorio
+    
+</a>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/static/plugins/toastr/toastr.min.js"></script>
+<script>
+    /* globals toastr:true */
+    toastr.options = {
+        'positionClass': 'toast-bottom-full-width'
+    };
+</script>
+
+
+
+
+<div id="language-modal"></div>
+
+    <script id="google-analytics" type="text/javascript">
+        /* eslint-disable */
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-55239-10', 'auto');
+        ga('set', 'forceSSL', true); // Toelichting CBP: Gebruik altijd https voor Google Analytics
+        ga('set', 'anonymizeIp', true); // Toelichting CBP: Zet de IP-maskering aan
+        ga('send', 'pageview');
+    </script>
+
+
+
+
+
+    <div class="cookielaw-banner" style="z-index: 99999">
+        <div class="container">
+            <button type="button" class="btn btn-default cookielaw-banner-button js-cookielaw-confirm pull-right">
+                Entiendo
+            </button>
+            <div class="cookielaw-banner-text btn-align">
+                Este sitio web utiliza cookies para garantizar que obtenga la mejor experiencia.
+            </div>
+        </div>
+    </div>
+    <script>
+        function createCookie(name, value, days) {
+            var expires;
+
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = '; expires=' + date.toGMTString();
+            } else {
+                expires = '';
+            }
+            document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + expires + '; path=/';
+        }
+
+        $(function () {
+            $('.js-cookielaw-confirm').on('click', function () {
+                createCookie('cookielaw_accepted', '1', 10 * 365);
+                $('.cookielaw-banner').hide();
+            });
+        });
+    </script>
+
+
+
+<form method="post" action="/accounts/logout/" class="hidden d-none js-logout-form">
+    <input type="hidden" name="csrfmiddlewaretoken" value="Adaev75eKBIB2bXZd37MEcMhlCVnVlWABNmwFMt5FW93mhTTrQNNMfUnHtIwVZdP">
+    
+    <input class="app-nav-button-link" type="submit" value="Cerrar sesión">
+</form>
+<script>
+    $(function() {
+        $('.js-logout-link').on('click', function () {
+            $('.js-logout-form').trigger('submit');
+            return false;
+        });
+    });
+</script>
+
+</body>
+
+</html>
